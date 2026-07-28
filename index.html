@@ -284,7 +284,7 @@ video { width: 100%; border-radius: var(--radius-sm); background: #000; }
 }
 </style>
 <style>
-/* ===== 视觉优化增强层 v3 ===== */
+/* ===== 视觉优化增强层 v4（AI 对练） ===== */
 :root{
   --brand: linear-gradient(135deg,#2563eb 0%,#7c3aed 100%);
   --bg-grad: radial-gradient(1000px 520px at 88% -8%, #e3edff 0%, rgba(227,237,255,0) 60%),
@@ -294,7 +294,6 @@ video { width: 100%; border-radius: var(--radius-sm); background: #000; }
 }
 body{ background: var(--bg-grad); }
 
-/* 内部资料横幅 */
 .internal-banner{position:fixed;top:0;left:0;right:0;height:26px;background:linear-gradient(90deg,#b91c1c,#dc2626);color:#fff;font-size:12px;display:flex;align-items:center;justify-content:center;z-index:130;letter-spacing:.08em;font-weight:600;box-shadow:0 2px 10px rgba(185,28,28,.4);}
 .sidebar{top:26px;}
 .main{padding-top:66px;}
@@ -302,7 +301,6 @@ body{ background: var(--bg-grad); }
 .mobile-progress-bar{top:74px;}
 @media (max-width:1024px){.main{padding-top:54px;}}
 
-/* 侧边栏渐变 + 细节 */
 .sidebar{ background: linear-gradient(180deg,#1e293b 0%,#111827 100%); box-shadow: 4px 0 24px rgba(15,23,42,.18); }
 .sidebar-header h3{ color:#93c5fd; letter-spacing:.14em; }
 .sidebar-header .course-title{ background: var(--brand); -webkit-background-clip:text; background-clip:text; color:transparent; font-weight:800; }
@@ -313,38 +311,28 @@ body{ background: var(--bg-grad); }
 .nav-section.locked .nav-icon{ background:#475569; opacity:.7; }
 .study-timer .timer-display{ background: var(--brand); -webkit-background-clip:text; background-clip:text; color:transparent; }
 
-/* 主内容区 */
 .main{ padding: 44px 40px 56px; }
-
-/* 章节头部 */
 .section-badge{ background: linear-gradient(135deg,#dbeafe,#ede9fe); color:#4338ca; box-shadow:0 2px 8px rgba(67,56,202,.12); }
 .section-header h1{ font-size:30px; letter-spacing:-.01em; background: linear-gradient(120deg,#1e293b,#2563eb); -webkit-background-clip:text; background-clip:text; color:transparent; }
-.section-header .duration{ display:inline-block; margin-top:6px; padding:3px 12px; background:#fff; border:1px solid #e2e8f0; border-radius:20px; }
 
-/* 卡片升级 */
 .card{ border:none; box-shadow: var(--card-shadow); border-radius:16px; position:relative; overflow:hidden; }
 .card::before{ content:''; position:absolute; left:0; top:0; bottom:0; width:4px; background: var(--brand); }
 .card-title{ position:relative; padding-left:14px; }
 .card-title::before{ content:''; position:absolute; left:0; top:50%; transform:translateY(-50%); width:5px; height:18px; border-radius:3px; background: var(--brand); }
 
-/* 话术块 → 聊天气泡 */
 .script-block{ background:#fff; border:1px solid #e6edf7; border-left:4px solid #8b5cf6; border-radius:14px; box-shadow:0 3px 12px rgba(139,92,246,.08); color:#334155; }
 .script-block::before{ content:'💬 话术示例'; background: linear-gradient(135deg,#8b5cf6,#6366f1); box-shadow:0 3px 8px rgba(99,102,241,.35); }
 
-/* 流程步骤 */
 .flow-step{ border:1px solid #e6edf7; border-radius:14px; background:linear-gradient(180deg,#fff,#f8faff); }
 .flow-step .step-num{ background: var(--brand); box-shadow:0 4px 10px rgba(37,99,235,.35); }
 .flow-arrow{ color:#a5b4fc; }
 
-/* 选择题组 */
 .quiz-group{ background:linear-gradient(180deg,#fff,#fbfcff); border:1px solid #e6edf7; border-radius:18px; padding:20px 22px; margin-top:18px; box-shadow: var(--card-shadow); }
 .quiz-group-head{ display:flex; align-items:center; gap:10px; margin-bottom:14px; }
 .quiz-group-status{ margin-left:auto; font-size:13px; font-weight:700; padding:4px 12px; border-radius:20px; background:#eef2f7; color:#64748b; }
 .quiz-group-status.ok{ background:linear-gradient(135deg,#d1fae5,#a7f3d0); color:#065f46; }
 .quiz-group-status.warn{ background:linear-gradient(135deg,#fef3c7,#fde68a); color:#92400e; }
 .quiz-group-actions{ margin-top:16px; display:flex; justify-content:flex-end; }
-
-/* 选择题 */
 .quiz-card{ border:1px solid #eef2f7; border-radius:14px; padding:16px 18px; margin-bottom:14px; background:#fff; transition:.2s; }
 .quiz-card.answered-correct{ border-color:#10b981; box-shadow:0 0 0 3px rgba(16,185,129,.12); }
 .quiz-card.answered-wrong{ border-color:#f59e0b; box-shadow:0 0 0 3px rgba(245,158,11,.12); }
@@ -361,19 +349,14 @@ body{ background: var(--bg-grad); }
 .quiz-feedback.correct{ background:#ecfdf5; color:#065f46; border:1px solid #a7f3d0; }
 .quiz-feedback.wrong{ background:#fffbeb; color:#92400e; border:1px solid #fde68a; }
 
-/* 按钮 */
 .btn{ border-radius:12px; box-shadow:0 6px 16px -6px rgba(37,99,235,.6); letter-spacing:.02em; }
 .btn:hover{ transform:translateY(-2px); box-shadow:0 10px 22px -8px rgba(37,99,235,.7); }
 .btn-outline{ box-shadow:none; }
 
-/* 证书 */
 .certificate-paper{ border-radius:20px; background:linear-gradient(180deg,#fff,#fbfcff); border:1px solid #e6edf7; }
 .cert-title{ background: var(--brand); -webkit-background-clip:text; background-clip:text; color:transparent; }
-
-/* 笔记 */
 .notes-panel{ border-radius:16px 0 0 16px; }
 
-/* 课程封面 hero */
 .course-hero{ position:relative; border-radius:18px; padding:34px 32px; margin-bottom:26px; background:linear-gradient(135deg,#2563eb 0%,#7c3aed 55%,#6366f1 100%); color:#fff; overflow:hidden; box-shadow:0 18px 40px -16px rgba(99,102,241,.7); }
 .course-hero::after{ content:''; position:absolute; right:-40px; top:-40px; width:200px; height:200px; background:radial-gradient(circle, rgba(255,255,255,.18), transparent 70%); }
 .course-hero h2{ font-size:24px; font-weight:800; margin-bottom:8px; }
@@ -381,11 +364,48 @@ body{ background: var(--bg-grad); }
 .course-hero .hero-tags{ margin-top:16px; display:flex; gap:8px; flex-wrap:wrap; }
 .course-hero .hero-tag{ font-size:12px; padding:5px 12px; background:rgba(255,255,255,.18); border:1px solid rgba(255,255,255,.3); border-radius:20px; }
 
-/* 入场动画 */
-.card,.quiz-card,.quiz-group{ animation: rise .5s ease both; }
 @keyframes rise{ from{opacity:0; transform:translateY(10px);} to{opacity:1; transform:translateY(0);} }
+.card,.quiz-card,.quiz-group{ animation: rise .5s ease both; }
 
-/* 移动端微调 */
+/* ===== AI 对练组件 ===== */
+.ai-practice{ margin-top:22px; border:1px solid #e6edf7; border-radius:18px; background:linear-gradient(180deg,#fff,#fbfcff); box-shadow: var(--card-shadow); overflow:hidden; }
+.ai-practice-head{ display:flex; align-items:center; gap:10px; padding:16px 20px; background:linear-gradient(135deg,#1e293b,#312e81); color:#fff; }
+.ai-practice-head h3{ font-size:15px; font-weight:700; margin:0; }
+.ai-icon{ font-size:20px; }
+.ai-status{ margin-left:auto; font-size:12px; font-weight:700; padding:4px 12px; border-radius:20px; background:rgba(255,255,255,.18); }
+.ai-status.ok{ background:linear-gradient(135deg,#10b981,#059669); }
+.ai-status.warn{ background:linear-gradient(135deg,#f59e0b,#d97706); }
+.ai-scenario{ padding:14px 20px; font-size:13px; line-height:1.8; color:#475569; background:#f8faff; border-bottom:1px solid #eef2f7; }
+.ai-chat{ padding:16px 20px; min-height:80px; max-height:340px; overflow-y:auto; display:flex; flex-direction:column; gap:10px; }
+.ai-msg{ max-width:82%; padding:10px 14px; border-radius:14px; font-size:14px; line-height:1.7; }
+.ai-msg .who{ display:block; font-size:11px; font-weight:700; opacity:.6; margin-bottom:3px; }
+.ai-msg.cc{ align-self:flex-end; background:linear-gradient(135deg,#dbeafe,#ede9fe); border:1px solid #c7d2fe; border-bottom-right-radius:4px; }
+.ai-msg.parent{ align-self:flex-start; background:#f1f5f9; border:1px solid #e2e8f0; border-bottom-left-radius:4px; }
+.ai-msg.sys{ align-self:stretch; background:#fef2f2; color:#b91c1c; font-size:13px; max-width:100%; }
+.ai-input-row{ display:flex; gap:8px; padding:12px 20px; border-top:1px solid #eef2f7; }
+.ai-input-row textarea{ flex:1; min-height:42px; max-height:120px; padding:10px 12px; border:1px solid #cbd5e1; border-radius:10px; font-size:14px; resize:vertical; font-family:inherit; }
+.ai-actions{ display:flex; gap:10px; padding:0 20px 16px; }
+.ai-score{ display:none; padding:14px 20px 18px; border-top:1px dashed #e2e8f0; }
+.ai-score.show{ display:block; }
+.ai-score-head{ font-size:15px; margin-bottom:10px; }
+.ai-score-head .pass{ color:#059669; font-weight:700; }
+.ai-score-head .fail{ color:#d97706; font-weight:700; }
+.ai-dims{ list-style:none; padding:0; margin:0 0 10px; display:grid; grid-template-columns:1fr 1fr; gap:6px 16px; }
+.ai-dims li{ display:flex; justify-content:space-between; font-size:13px; padding:5px 10px; border-radius:8px; background:#f1f5f9; color:#94a3b8; }
+.ai-dims li.on{ background:#ecfdf5; color:#065f46; }
+.ai-weak{ font-size:13px; color:#b45309; margin-bottom:6px; }
+.ai-comment{ font-size:13px; color:#334155; line-height:1.7; margin-bottom:6px; }
+.ai-tip{ font-size:13px; color:#92400e; background:#fffbeb; border:1px solid #fde68a; padding:8px 12px; border-radius:8px; }
+.ai-score-err{ font-size:13px; color:#b91c1c; }
+
+/* ===== AI 代理设置（全局） ===== */
+.ai-settings-btn{ position:fixed; right:18px; bottom:18px; z-index:140; width:46px; height:46px; border-radius:50%; background:linear-gradient(135deg,#2563eb,#7c3aed); color:#fff; border:none; font-size:22px; cursor:pointer; box-shadow:0 8px 20px rgba(37,99,235,.5); }
+.ai-settings-panel{ position:fixed; right:18px; bottom:74px; z-index:140; width:300px; background:#fff; border:1px solid #e2e8f0; border-radius:14px; box-shadow:0 12px 34px rgba(15,23,42,.22); padding:16px; display:none; }
+.ai-settings-panel.show{ display:block; }
+.ai-settings-panel h4{ margin:0 0 10px; font-size:14px; color:#1e293b; }
+.ai-settings-panel input{ width:100%; padding:8px 10px; border:1px solid #cbd5e1; border-radius:8px; font-size:13px; box-sizing:border-box; margin-bottom:10px; }
+.ai-settings-panel .hint{ font-size:11px; color:#64748b; line-height:1.6; margin-top:6px; }
+
 @media (max-width:1024px){
   .course-hero{ padding:24px 20px; }
   .course-hero h2{ font-size:20px; }
@@ -485,58 +505,58 @@ const courseData = {
     {
     "id": "s1",
     "title": "首通流程（24h）",
-    "duration": "10-12分钟",
+    "duration": "15-20分钟",
     "icon": "1",
     "type": "content",
-    "content": "<div class=\"course-hero\"><h2>VIP THINK · 学员服务流程与话术</h2><p>本微课面向班导（LP）岗位，系统讲解从首通、首课回访、专题与月度回访、停课唤醒、老生交接到结课外呼的全流程服务 SOP 与电话话术。每一章均需通过选择题考核（全部答对）才能进入下一关，并通过以「果果」为背景的终极考核方可领取结业证书。</p><div class=\"hero-tags\"><span class=\"hero-tag\">📞 6 大服务阶段</span><span class=\"hero-tag\">✍️ 6 章 · 每章≥5题</span><span class=\"hero-tag\">🔒 全对解锁下一关</span><span class=\"hero-tag\">🎭 终极模拟对话·果果首通</span></div></div><div class=\"card\"><div class=\"card-title\">通话前准备</div><ul style=\"padding-left:20px;line-height:1.9;margin:8px 0;\"><li>查看学员后台信息：姓名、性别、年级、购课时间/价格/总课时/赠送、排课与首课时间、级别、授课老师、时差。</li><li>与课程顾问或教务老师交接：确认后台资料无误，询问针对家长的注意事项；钉钉联系顾问，无回复则自行安排先联系家长。</li></ul></div><div class=\"card\"><div class=\"card-title\">首通电话六步流程</div><div class=\"flow-steps\"><div class=\"flow-step\"><div class=\"step-num\">1</div><h4>开场白</h4><p>自我介绍、说明来意、询问是否方便（5-10 分钟，尽量 24h 内）</p></div><div class=\"flow-arrow\">→</div><div class=\"flow-step\"><div class=\"step-num\">2</div><h4>了解学员</h4><p>基本信息、报名初衷、学习经历、决策人；充分聆听互动</p></div><div class=\"flow-arrow\">→</div><div class=\"flow-step\"><div class=\"step-num\">3</div><h4>确认课包</h4><p>课包价格/课时、排课/首课/级别/语言/老师/班型</p></div><div class=\"flow-arrow\">→</div><div class=\"flow-step\"><div class=\"step-num\">4</div><h4>介绍家长端</h4><p>引导下载家长端 APP、关注 VIP THINK 服务号</p></div><div class=\"flow-arrow\">→</div><div class=\"flow-step\"><div class=\"step-num\">5</div><h4>上课规则</h4><p>结合学习闭环说明请假-补课-停课-旷课规则，减少异议</p></div><div class=\"flow-arrow\">→</div><div class=\"flow-step\"><div class=\"step-num\">6</div><h4>福利与升舱</h4><p>打卡与转介绍老带新福利；铺垫三个月内升舱权益</p></div></div></div><div class=\"script-block script\">【开场白话术】LP：XX妈妈/爸爸您好？我是 VIP THINK 的班导 XX 老师，很高兴可以跟您电话沟通。您报名了我们的课程，分配到我的班级，以后小朋友在 VIP THINK 的学习，都会由我全程负责跟进喔。请问您现在方便接电话嘛？今天打给您，主要想跟您确认上课相关信息、说一下开课的注意事项，也想了解一下小朋友的基础情况。</div><div class=\"script-block script\">【了解学员话术】LP：XX小朋友今年是 XX 岁对吗？是男生还是女生呢？现在读 XX 年级对吗？我们小朋友之前有没有在课外上过数学思维课？会认数和点数 20 以内的数吗？可以熟练计算 20 以内的加减吗？小朋友平时愿不愿意主动表达？性格偏慢热还是活泼？这次报名想提升哪方面能力呢？</div><div class=\"script-block script\">【确认课包话术】LP：我看到小朋友第一堂课时间是 XX，上课软件 VIP THINK 学生端和家长端 APP 您这边有没有安装好？账号是您登记的手机号，默认密码 123456。我们报名了 XX 课时包，另外赠送 X 课时，一共 X 课时，以及 XX 次打卡次数，课程有效期 XX，您看一下对不对？小朋友课程由 SX 级别开始，授课语言 XX，每周 X 和周 X 的 XX:XX 上课，每节课 40 分钟，班上有 XX 人，记得设好闹钟准时到课喔。</div><div class=\"script-block script\">【介绍家长端话术】LP：家长端首页“小老师影片”每节课后请小朋友做小老师讲解一题，您录下来上传，能加深理解与表达；底部“课程”可看预热、上课、内容巩固情况，上课时间点“在线旁听”可远程看实况。学生端/家长端都用报名手机号登录，初始密码 123456，建议登录后尽快修改。</div><div class=\"script-block script\">【福利与升舱话术】LP：打卡福利—每周在 Line 动态/FB 打一次卡（用家长端专属海报）可得 2000 豌豆币，8000 豌豆币可兑换一节直播课；转介绍福利—朋友小朋友扫您海报 QR Code 登记试听，完成试听得额外豌豆币，报名再赠课时。升舱权益—开课三个月内补差价以优惠价规划完整级别，比正常续费便宜约 2000-3000 元，是唯一一次最低单价机会。</div><div class=\"quiz-group\"><div class=\"quiz-group-head\"><span style=\"font-size:20px;\">✍️</span><h3 style=\"font-size:16px;font-weight:700;margin:0;\">本章考核（选择题 · 全对解锁下一章）</h3><span class=\"quiz-group-status\" id=\"status-s0\">待作答</span></div><div class=\"quiz-card\" id=\"quiz-q1_1\"><div class=\"quiz-question\">首通电话应在学员报名后多久内完成？</div><div class=\"quiz-options\"><div class=\"quiz-option\" data-option=\"0\" onclick='selectQuizOption(this, 0, \"q1_1\")'><span class=\"quiz-option-label\">A</span><span>12 小时内</span></div><div class=\"quiz-option\" data-option=\"1\" onclick='selectQuizOption(this, 1, \"q1_1\")'><span class=\"quiz-option-label\">B</span><span>24 小时内</span></div><div class=\"quiz-option\" data-option=\"2\" onclick='selectQuizOption(this, 2, \"q1_1\")'><span class=\"quiz-option-label\">C</span><span>48 小时内</span></div><div class=\"quiz-option\" data-option=\"3\" onclick='selectQuizOption(this, 3, \"q1_1\")'><span class=\"quiz-option-label\">D</span><span>72 小时内</span></div></div><div class=\"quiz-feedback\" id=\"feedback-q1_1\"></div></div><div class=\"quiz-card\" id=\"quiz-q1_2\"><div class=\"quiz-question\">首通六步流程的第一步是？</div><div class=\"quiz-options\"><div class=\"quiz-option\" data-option=\"0\" onclick='selectQuizOption(this, 0, \"q1_2\")'><span class=\"quiz-option-label\">A</span><span>了解学员学习经历</span></div><div class=\"quiz-option\" data-option=\"1\" onclick='selectQuizOption(this, 1, \"q1_2\")'><span class=\"quiz-option-label\">B</span><span>开场白（自我介绍 / 说明来意 / 询问是否方便）</span></div><div class=\"quiz-option\" data-option=\"2\" onclick='selectQuizOption(this, 2, \"q1_2\")'><span class=\"quiz-option-label\">C</span><span>直接确认课包</span></div><div class=\"quiz-option\" data-option=\"3\" onclick='selectQuizOption(this, 3, \"q1_2\")'><span class=\"quiz-option-label\">D</span><span>介绍升舱权益</span></div></div><div class=\"quiz-feedback\" id=\"feedback-q1_2\"></div></div><div class=\"quiz-card\" id=\"quiz-q1_3\"><div class=\"quiz-question\">了解学员时，以下哪项不属于应确认的基本信息？</div><div class=\"quiz-options\"><div class=\"quiz-option\" data-option=\"0\" onclick='selectQuizOption(this, 0, \"q1_3\")'><span class=\"quiz-option-label\">A</span><span>年级与性别</span></div><div class=\"quiz-option\" data-option=\"1\" onclick='selectQuizOption(this, 1, \"q1_3\")'><span class=\"quiz-option-label\">B</span><span>性格与学习期望</span></div><div class=\"quiz-option\" data-option=\"2\" onclick='selectQuizOption(this, 2, \"q1_3\")'><span class=\"quiz-option-label\">C</span><span>家长的银行卡密码</span></div><div class=\"quiz-option\" data-option=\"3\" onclick='selectQuizOption(this, 3, \"q1_3\")'><span class=\"quiz-option-label\">D</span><span>报名初衷</span></div></div><div class=\"quiz-feedback\" id=\"feedback-q1_3\"></div></div><div class=\"quiz-card\" id=\"quiz-q1_4\"><div class=\"quiz-question\">确认课包时，应告知家长学员课程由哪个级别开始？</div><div class=\"quiz-options\"><div class=\"quiz-option\" data-option=\"0\" onclick='selectQuizOption(this, 0, \"q1_4\")'><span class=\"quiz-option-label\">A</span><span>S9</span></div><div class=\"quiz-option\" data-option=\"1\" onclick='selectQuizOption(this, 1, \"q1_4\")'><span class=\"quiz-option-label\">B</span><span>SX</span></div><div class=\"quiz-option\" data-option=\"2\" onclick='selectQuizOption(this, 2, \"q1_4\")'><span class=\"quiz-option-label\">C</span><span>S1（大学一年级）</span></div><div class=\"quiz-option\" data-option=\"3\" onclick='selectQuizOption(this, 3, \"q1_4\")'><span class=\"quiz-option-label\">D</span><span>不告知</span></div></div><div class=\"quiz-feedback\" id=\"feedback-q1_4\"></div></div><div class=\"quiz-card\" id=\"quiz-q1_5\"><div class=\"quiz-question\">介绍家长端时，学生端 / 家长端的默认登录方式是？</div><div class=\"quiz-options\"><div class=\"quiz-option\" data-option=\"0\" onclick='selectQuizOption(this, 0, \"q1_5\")'><span class=\"quiz-option-label\">A</span><span>微信扫码</span></div><div class=\"quiz-option\" data-option=\"1\" onclick='selectQuizOption(this, 1, \"q1_5\")'><span class=\"quiz-option-label\">B</span><span>报名手机号登录、初始密码 123456</span></div><div class=\"quiz-option\" data-option=\"2\" onclick='selectQuizOption(this, 2, \"q1_5\")'><span class=\"quiz-option-label\">C</span><span>邮箱注册</span></div><div class=\"quiz-option\" data-option=\"3\" onclick='selectQuizOption(this, 3, \"q1_5\")'><span class=\"quiz-option-label\">D</span><span>无需登录</span></div></div><div class=\"quiz-feedback\" id=\"feedback-q1_5\"></div></div><div class=\"quiz-card\" id=\"quiz-q1_6\"><div class=\"quiz-question\">升舱权益应在开课多久内铺垫，可享受最低单价？</div><div class=\"quiz-options\"><div class=\"quiz-option\" data-option=\"0\" onclick='selectQuizOption(this, 0, \"q1_6\")'><span class=\"quiz-option-label\">A</span><span>一周内</span></div><div class=\"quiz-option\" data-option=\"1\" onclick='selectQuizOption(this, 1, \"q1_6\")'><span class=\"quiz-option-label\">B</span><span>三个月内</span></div><div class=\"quiz-option\" data-option=\"2\" onclick='selectQuizOption(this, 2, \"q1_6\")'><span class=\"quiz-option-label\">C</span><span>半年内</span></div><div class=\"quiz-option\" data-option=\"3\" onclick='selectQuizOption(this, 3, \"q1_6\")'><span class=\"quiz-option-label\">D</span><span>随时可补</span></div></div><div class=\"quiz-feedback\" id=\"feedback-q1_6\"></div></div><div class=\"quiz-group-actions\"><button class=\"btn btn-outline\" onclick=\"resetQuizGroup(0)\">↺ 重新作答本节</button></div></div>"
+    "content": "<div class=\"course-hero\"><h2>VIP THINK · 学员服务流程与话术（AI 对练版）</h2><p>本微课面向班导（LP）岗位，系统讲解从首通、首课回访、专题与月度回访、停课唤醒、老生交接到结课外呼的全流程服务 SOP 与电话话术。<b>每一章都需用 AI 模拟对练</b>（AI 扮演台湾家长，真实互动、动态抛异议）完成考核，评分达标才能进入下一关，并通过以「果果」为背景的终极综合对练方可领取结业证书。</p><div class=\"hero-tags\"><span class=\"hero-tag\">📞 6 大服务阶段</span><span class=\"hero-tag\">🤖 每章 AI 对练（演家长）</span><span class=\"hero-tag\">🔒 评分达标解锁下一关</span><span class=\"hero-tag\">🎭 终极综合·果果续费挽留</span></div></div><div class=\"card\"><div class=\"card-title\">通话前准备</div><ul style=\"padding-left:20px;line-height:1.9;margin:8px 0;\"><li>查看学员后台信息：姓名、性别、年级、购课时间/价格/总课时/赠送、排课与首课时间、级别、授课老师、时差。</li><li>与课程顾问或教务老师交接：确认后台资料无误，询问针对家长的注意事项。</li></ul></div><div class=\"card\"><div class=\"card-title\">首通电话六步流程</div><div class=\"flow-steps\"><div class=\"flow-step\"><div class=\"step-num\">1</div><h4>开场白</h4><p>自我介绍、说明来意、询问是否方便</p></div><div class=\"flow-arrow\">→</div><div class=\"flow-step\"><div class=\"step-num\">2</div><h4>了解学员</h4><p>基本信息、报名初衷、学习经历、决策人；充分聆听</p></div><div class=\"flow-arrow\">→</div><div class=\"flow-step\"><div class=\"step-num\">3</div><h4>确认课包</h4><p>课包价格/课时、排课/首课/级别/语言/老师/班型</p></div><div class=\"flow-arrow\">→</div><div class=\"flow-step\"><div class=\"step-num\">4</div><h4>介绍家长端</h4><p>引导下载家长端 APP、关注 VIP THINK 服务号</p></div><div class=\"flow-arrow\">→</div><div class=\"flow-step\"><div class=\"step-num\">5</div><h4>上课规则</h4><p>结合学习闭环说明请假-补课-停课-旷课规则</p></div><div class=\"flow-arrow\">→</div><div class=\"flow-step\"><div class=\"step-num\">6</div><h4>福利与升舱</h4><p>打卡与转介绍福利；铺垫三个月内升舱权益</p></div></div></div><div class=\"script-block script\">【开场】果果妈妈您好？我是 VIP THINK 的班导 XX 老师，很高兴跟您电话沟通。您报名了我们的课程，以后果果在 VIP THINK 的学习都会由我全程负责跟进。请问您现在方便接电话吗？今天打给您，主要想确认上课相关信息、说一下开课注意事项，也想了解一下果果的基础情况。</div><div class=\"script-block script\">【了解学员】果果今年是读大班对吗？是小女生吧？小朋友性格偏慢热还是活泼呀？这次报名咱们想提升哪方面能力呢？</div><div class=\"script-block script\">【确认课包+家长端】我们报名了 48 课时包（含赠送 8 课时），由 SX 级别开始，每周二、四 19:30 上课，每节 40 分钟。家长端用报名手机号登录、初始密码 123456，可看预热与在线旁听；每节课后请果果做\"小老师影片\"讲解一题。</div><div class=\"quiz-group\"><div class=\"quiz-group-head\"><span style=\"font-size:20px;\">✍️</span><h3 style=\"font-size:16px;font-weight:700;margin:0;\">本章预热（3 题 · 练习用，不卡关）</h3><span class=\"quiz-group-status\" id=\"status-s0\">练习</span></div><div class=\"quiz-card\" id=\"quiz-q1_1\"><div class=\"quiz-question\">首通电话应在学员报名后多久内完成？</div><div class=\"quiz-options\"><div class=\"quiz-option\" data-option=\"0\" onclick='selectQuizOption(this, 0, \"q1_1\")'><span class=\"quiz-option-label\">A</span><span>12 小时内</span></div><div class=\"quiz-option\" data-option=\"1\" onclick='selectQuizOption(this, 1, \"q1_1\")'><span class=\"quiz-option-label\">B</span><span>24 小时内</span></div><div class=\"quiz-option\" data-option=\"2\" onclick='selectQuizOption(this, 2, \"q1_1\")'><span class=\"quiz-option-label\">C</span><span>48 小时内</span></div><div class=\"quiz-option\" data-option=\"3\" onclick='selectQuizOption(this, 3, \"q1_1\")'><span class=\"quiz-option-label\">D</span><span>72 小时内</span></div></div><div class=\"quiz-feedback\" id=\"feedback-q1_1\"></div></div><div class=\"quiz-card\" id=\"quiz-q1_2\"><div class=\"quiz-question\">首通六步流程的第一步是？</div><div class=\"quiz-options\"><div class=\"quiz-option\" data-option=\"0\" onclick='selectQuizOption(this, 0, \"q1_2\")'><span class=\"quiz-option-label\">A</span><span>了解学员学习经历</span></div><div class=\"quiz-option\" data-option=\"1\" onclick='selectQuizOption(this, 1, \"q1_2\")'><span class=\"quiz-option-label\">B</span><span>开场白（自我介绍 / 说明来意 / 询问是否方便）</span></div><div class=\"quiz-option\" data-option=\"2\" onclick='selectQuizOption(this, 2, \"q1_2\")'><span class=\"quiz-option-label\">C</span><span>直接确认课包</span></div><div class=\"quiz-option\" data-option=\"3\" onclick='selectQuizOption(this, 3, \"q1_2\")'><span class=\"quiz-option-label\">D</span><span>介绍升舱权益</span></div></div><div class=\"quiz-feedback\" id=\"feedback-q1_2\"></div></div><div class=\"quiz-card\" id=\"quiz-q1_4\"><div class=\"quiz-question\">确认课包时，应告知家长学员课程由哪个级别开始？</div><div class=\"quiz-options\"><div class=\"quiz-option\" data-option=\"0\" onclick='selectQuizOption(this, 0, \"q1_4\")'><span class=\"quiz-option-label\">A</span><span>S9</span></div><div class=\"quiz-option\" data-option=\"1\" onclick='selectQuizOption(this, 1, \"q1_4\")'><span class=\"quiz-option-label\">B</span><span>SX</span></div><div class=\"quiz-option\" data-option=\"2\" onclick='selectQuizOption(this, 2, \"q1_4\")'><span class=\"quiz-option-label\">C</span><span>S1（大学一年级）</span></div><div class=\"quiz-option\" data-option=\"3\" onclick='selectQuizOption(this, 3, \"q1_4\")'><span class=\"quiz-option-label\">D</span><span>不告知</span></div></div><div class=\"quiz-feedback\" id=\"feedback-q1_4\"></div></div><div class=\"quiz-group-actions\"><button class=\"btn btn-outline\" onclick=\"resetQuizGroup(0)\">↺ 重做练习</button></div></div><div class=\"ai-practice\" data-sec=\"0\"><div class=\"ai-practice-head\"><span class=\"ai-icon\">🤖</span><h3>AI 模拟对练 · 第 1 章</h3><span class=\"ai-status\" id=\"ai-status-0\">待对练</span></div><div class=\"ai-scenario\" id=\"ai-scenario-0\"></div><div class=\"ai-chat\" id=\"ai-chat-0\"></div><div class=\"ai-input-row\"><textarea id=\"ai-input-0\" placeholder=\"以班导身份输入你的回应话术（自然语言，可多轮）…\"></textarea><button class=\"btn\" onclick=\"aiSend(0)\">发送</button></div><div class=\"ai-actions\"><button class=\"btn btn-outline\" onclick=\"aiScore(0)\">提交评分</button><button class=\"btn btn-outline\" onclick=\"aiReset(0)\">重新对练</button></div><div class=\"ai-score\" id=\"ai-score-0\"></div></div>"
   },
   {
     "id": "s2",
     "title": "首课回访（48h）",
-    "duration": "10-12分钟",
+    "duration": "15-20分钟",
     "icon": "2",
     "type": "content",
-    "content": "<div class=\"card\"><div class=\"card-title\">课前 Line 提醒</div><ul style=\"padding-left:20px;line-height:1.9;margin:8px 0;\"><li>告知家长首课时间与第一节课内容，确认无误、能否到课；</li><li>确认设备、网络正常与 APP 已下载；</li><li>简介 VIP THINK 学习闭环，重点强调预习。</li></ul></div><div class=\"card\"><div class=\"card-title\">首课监课要点</div><ul style=\"padding-left:20px;line-height:1.9;margin:8px 0;\"><li>提前 5 分钟进教室，确保师生同时进入、设备无误、课件正常显示；</li><li>关注学员课堂表现与师生互动，记录高光时刻；设备问题协助联系 IT 建工单。</li></ul></div><div class=\"card\"><div class=\"card-title\">首课后回访（48 小时内 · 电话）</div><p>目的：跟进上课感受、及时处理异议、督促养成学习习惯。准备：与授课老师沟通学情、查看并复制首课报告链接给家长。</p></div><div class=\"script-block script\">【回访开场与满意度探询】LP：XX妈妈您好，我是 VIP THINK 班导 XX 老师。小朋友刚完成第一次正式课程，今天第一时间跟您反馈上课情况。请问您有陪小朋友一起上课吗？对课程难易度觉得能接受吗？第一节课整个过程还适应吗？</div><div class=\"script-block script\">【监课与老师反馈】LP：这节课我也去监课了，老师每次提问时孩子虽然有点害羞但整节课专注度不错。结合首课报告，本节专题学习“巧解格阵”，培养观察力、分析力、推理力；本节答对 8 题、正确率 80%，课后练习正确率 100%，掌握得很好。孩子对老师还喜欢吧？</div><div class=\"script-block script\">【复习提醒与结束语】LP：每次上完课，内容可在学生端回顾一次、课后作业及时完成，帮他养成好习惯；题目简单，指导时多鼓励。妈妈还有什么问题吗？之后有问题微信或群里沟通，没及时回复就打我电话，妈妈再见。</div><div class=\"quiz-group\"><div class=\"quiz-group-head\"><span style=\"font-size:20px;\">✍️</span><h3 style=\"font-size:16px;font-weight:700;margin:0;\">本章考核（选择题 · 全对解锁下一章）</h3><span class=\"quiz-group-status\" id=\"status-s1\">待作答</span></div><div class=\"quiz-card\" id=\"quiz-q2_1\"><div class=\"quiz-question\">首课后回访应在什么时间内以电话进行？</div><div class=\"quiz-options\"><div class=\"quiz-option\" data-option=\"0\" onclick='selectQuizOption(this, 0, \"q2_1\")'><span class=\"quiz-option-label\">A</span><span>24 小时内</span></div><div class=\"quiz-option\" data-option=\"1\" onclick='selectQuizOption(this, 1, \"q2_1\")'><span class=\"quiz-option-label\">B</span><span>48 小时内</span></div><div class=\"quiz-option\" data-option=\"2\" onclick='selectQuizOption(this, 2, \"q2_1\")'><span class=\"quiz-option-label\">C</span><span>一周内</span></div><div class=\"quiz-option\" data-option=\"3\" onclick='selectQuizOption(this, 3, \"q2_1\")'><span class=\"quiz-option-label\">D</span><span>一个月内</span></div></div><div class=\"quiz-feedback\" id=\"feedback-q2_1\"></div></div><div class=\"quiz-card\" id=\"quiz-q2_2\"><div class=\"quiz-question\">首课监课应提前多久进教室？</div><div class=\"quiz-options\"><div class=\"quiz-option\" data-option=\"0\" onclick='selectQuizOption(this, 0, \"q2_2\")'><span class=\"quiz-option-label\">A</span><span>提前 1 分钟</span></div><div class=\"quiz-option\" data-option=\"1\" onclick='selectQuizOption(this, 1, \"q2_2\")'><span class=\"quiz-option-label\">B</span><span>提前 5 分钟</span></div><div class=\"quiz-option\" data-option=\"2\" onclick='selectQuizOption(this, 2, \"q2_2\")'><span class=\"quiz-option-label\">C</span><span>上课后</span></div><div class=\"quiz-option\" data-option=\"3\" onclick='selectQuizOption(this, 3, \"q2_2\")'><span class=\"quiz-option-label\">D</span><span>无需监课</span></div></div><div class=\"quiz-feedback\" id=\"feedback-q2_2\"></div></div><div class=\"quiz-card\" id=\"quiz-q2_3\"><div class=\"quiz-question\">回访中结合首课报告，应反馈哪些数据？</div><div class=\"quiz-options\"><div class=\"quiz-option\" data-option=\"0\" onclick='selectQuizOption(this, 0, \"q2_3\")'><span class=\"quiz-option-label\">A</span><span>仅孩子喜好</span></div><div class=\"quiz-option\" data-option=\"1\" onclick='selectQuizOption(this, 1, \"q2_3\")'><span class=\"quiz-option-label\">B</span><span>答对题数 / 正确率 / 课后练习正确率</span></div><div class=\"quiz-option\" data-option=\"2\" onclick='selectQuizOption(this, 2, \"q2_3\")'><span class=\"quiz-option-label\">C</span><span>仅老师评价</span></div><div class=\"quiz-option\" data-option=\"3\" onclick='selectQuizOption(this, 3, \"q2_3\")'><span class=\"quiz-option-label\">D</span><span>无需反馈</span></div></div><div class=\"quiz-feedback\" id=\"feedback-q2_3\"></div></div><div class=\"quiz-card\" id=\"quiz-q2_4\"><div class=\"quiz-question\">课后应建议家长督促孩子养成什么习惯？</div><div class=\"quiz-options\"><div class=\"quiz-option\" data-option=\"0\" onclick='selectQuizOption(this, 0, \"q2_4\")'><span class=\"quiz-option-label\">A</span><span>少做题</span></div><div class=\"quiz-option\" data-option=\"1\" onclick='selectQuizOption(this, 1, \"q2_4\")'><span class=\"quiz-option-label\">B</span><span>复习并完成课后作业</span></div><div class=\"quiz-option\" data-option=\"2\" onclick='selectQuizOption(this, 2, \"q2_4\")'><span class=\"quiz-option-label\">C</span><span>多报其他课</span></div><div class=\"quiz-option\" data-option=\"3\" onclick='selectQuizOption(this, 3, \"q2_4\")'><span class=\"quiz-option-label\">D</span><span>不用管</span></div></div><div class=\"quiz-feedback\" id=\"feedback-q2_4\"></div></div><div class=\"quiz-card\" id=\"quiz-q2_5\"><div class=\"quiz-question\">课前 Line 提醒应重点强调学习闭环中的哪一步？</div><div class=\"quiz-options\"><div class=\"quiz-option\" data-option=\"0\" onclick='selectQuizOption(this, 0, \"q2_5\")'><span class=\"quiz-option-label\">A</span><span>预习</span></div><div class=\"quiz-option\" data-option=\"1\" onclick='selectQuizOption(this, 1, \"q2_5\")'><span class=\"quiz-option-label\">B</span><span>结课</span></div><div class=\"quiz-option\" data-option=\"2\" onclick='selectQuizOption(this, 2, \"q2_5\")'><span class=\"quiz-option-label\">C</span><span>升舱</span></div><div class=\"quiz-option\" data-option=\"3\" onclick='selectQuizOption(this, 3, \"q2_5\")'><span class=\"quiz-option-label\">D</span><span>转介绍</span></div></div><div class=\"quiz-feedback\" id=\"feedback-q2_5\"></div></div><div class=\"quiz-card\" id=\"quiz-q2_6\"><div class=\"quiz-question\">首课回访的目的不包括？</div><div class=\"quiz-options\"><div class=\"quiz-option\" data-option=\"0\" onclick='selectQuizOption(this, 0, \"q2_6\")'><span class=\"quiz-option-label\">A</span><span>跟进上课感受</span></div><div class=\"quiz-option\" data-option=\"1\" onclick='selectQuizOption(this, 1, \"q2_6\")'><span class=\"quiz-option-label\">B</span><span>及时处理异议</span></div><div class=\"quiz-option\" data-option=\"2\" onclick='selectQuizOption(this, 2, \"q2_6\")'><span class=\"quiz-option-label\">C</span><span>督促学习习惯</span></div><div class=\"quiz-option\" data-option=\"3\" onclick='selectQuizOption(this, 3, \"q2_6\")'><span class=\"quiz-option-label\">D</span><span>直接推销续费大课包</span></div></div><div class=\"quiz-feedback\" id=\"feedback-q2_6\"></div></div><div class=\"quiz-group-actions\"><button class=\"btn btn-outline\" onclick=\"resetQuizGroup(1)\">↺ 重新作答本节</button></div></div>"
+    "content": "<div class=\"card\"><div class=\"card-title\">课前 Line 提醒</div><ul style=\"padding-left:20px;line-height:1.9;margin:8px 0;\"><li>告知家长首课时间与第一节课内容，确认能否到课；</li><li>确认设备、网络正常与 APP 已下载；</li><li>简介 VIP THINK 学习闭环，重点强调预习。</li></ul></div><div class=\"card\"><div class=\"card-title\">首课监课要点</div><ul style=\"padding-left:20px;line-height:1.9;margin:8px 0;\"><li>提前 5 分钟进教室，确保师生同时进入、设备无误；</li><li>记录高光时刻，设备问题协助建工单。</li></ul></div><div class=\"card\"><div class=\"card-title\">首课后回访（48 小时内 · 电话）</div><p>目的：跟进上课感受、及时处理异议、督促学习习惯。结合首课报告外化学情（答对率/练习正确率）。</p></div><div class=\"script-block script\">【回访】果果妈妈您好，我是 VIP THINK 班导 XX 老师。小朋友刚完成第一次正式课程，今天第一时间跟您反馈。请问有陪小朋友一起上课吗？对难易度能接受吗？这节课孩子专注度不错，结合首课报告答对 8 题、正确率 80%，课后练习正确率 100%。每次上完课内容可在学生端回顾、课后作业及时完成。妈妈还有什么问题吗？</div><div class=\"quiz-group\"><div class=\"quiz-group-head\"><span style=\"font-size:20px;\">✍️</span><h3 style=\"font-size:16px;font-weight:700;margin:0;\">本章预热（3 题 · 练习用，不卡关）</h3><span class=\"quiz-group-status\" id=\"status-s1\">练习</span></div><div class=\"quiz-card\" id=\"quiz-q2_1\"><div class=\"quiz-question\">首课后回访应在什么时间内以电话进行？</div><div class=\"quiz-options\"><div class=\"quiz-option\" data-option=\"0\" onclick='selectQuizOption(this, 0, \"q2_1\")'><span class=\"quiz-option-label\">A</span><span>24 小时内</span></div><div class=\"quiz-option\" data-option=\"1\" onclick='selectQuizOption(this, 1, \"q2_1\")'><span class=\"quiz-option-label\">B</span><span>48 小时内</span></div><div class=\"quiz-option\" data-option=\"2\" onclick='selectQuizOption(this, 2, \"q2_1\")'><span class=\"quiz-option-label\">C</span><span>一周内</span></div><div class=\"quiz-option\" data-option=\"3\" onclick='selectQuizOption(this, 3, \"q2_1\")'><span class=\"quiz-option-label\">D</span><span>一个月内</span></div></div><div class=\"quiz-feedback\" id=\"feedback-q2_1\"></div></div><div class=\"quiz-card\" id=\"quiz-q2_2\"><div class=\"quiz-question\">首课监课应提前多久进教室？</div><div class=\"quiz-options\"><div class=\"quiz-option\" data-option=\"0\" onclick='selectQuizOption(this, 0, \"q2_2\")'><span class=\"quiz-option-label\">A</span><span>提前 1 分钟</span></div><div class=\"quiz-option\" data-option=\"1\" onclick='selectQuizOption(this, 1, \"q2_2\")'><span class=\"quiz-option-label\">B</span><span>提前 5 分钟</span></div><div class=\"quiz-option\" data-option=\"2\" onclick='selectQuizOption(this, 2, \"q2_2\")'><span class=\"quiz-option-label\">C</span><span>上课后</span></div><div class=\"quiz-option\" data-option=\"3\" onclick='selectQuizOption(this, 3, \"q2_2\")'><span class=\"quiz-option-label\">D</span><span>无需监课</span></div></div><div class=\"quiz-feedback\" id=\"feedback-q2_2\"></div></div><div class=\"quiz-card\" id=\"quiz-q2_5\"><div class=\"quiz-question\">课前 Line 提醒应重点强调学习闭环中的哪一步？</div><div class=\"quiz-options\"><div class=\"quiz-option\" data-option=\"0\" onclick='selectQuizOption(this, 0, \"q2_5\")'><span class=\"quiz-option-label\">A</span><span>预习</span></div><div class=\"quiz-option\" data-option=\"1\" onclick='selectQuizOption(this, 1, \"q2_5\")'><span class=\"quiz-option-label\">B</span><span>结课</span></div><div class=\"quiz-option\" data-option=\"2\" onclick='selectQuizOption(this, 2, \"q2_5\")'><span class=\"quiz-option-label\">C</span><span>升舱</span></div><div class=\"quiz-option\" data-option=\"3\" onclick='selectQuizOption(this, 3, \"q2_5\")'><span class=\"quiz-option-label\">D</span><span>转介绍</span></div></div><div class=\"quiz-feedback\" id=\"feedback-q2_5\"></div></div><div class=\"quiz-group-actions\"><button class=\"btn btn-outline\" onclick=\"resetQuizGroup(1)\">↺ 重做练习</button></div></div><div class=\"ai-practice\" data-sec=\"1\"><div class=\"ai-practice-head\"><span class=\"ai-icon\">🤖</span><h3>AI 模拟对练 · 第 2 章</h3><span class=\"ai-status\" id=\"ai-status-1\">待对练</span></div><div class=\"ai-scenario\" id=\"ai-scenario-1\"></div><div class=\"ai-chat\" id=\"ai-chat-1\"></div><div class=\"ai-input-row\"><textarea id=\"ai-input-1\" placeholder=\"以班导身份输入你的回应话术（自然语言，可多轮）…\"></textarea><button class=\"btn\" onclick=\"aiSend(1)\">发送</button></div><div class=\"ai-actions\"><button class=\"btn btn-outline\" onclick=\"aiScore(1)\">提交评分</button><button class=\"btn btn-outline\" onclick=\"aiReset(1)\">重新对练</button></div><div class=\"ai-score\" id=\"ai-score-1\"></div></div>"
   },
   {
     "id": "s3",
     "title": "专题&月度回访服务",
-    "duration": "8-10分钟",
+    "duration": "12-15分钟",
     "icon": "3",
     "type": "content",
-    "content": "<div class=\"card\"><div class=\"card-title\">专题反馈</div><ul style=\"padding-left:20px;line-height:1.9;margin:8px 0;\"><li>本专题所学重点文字 + 图片总结（运营按专题周维度提供模板）；</li><li>根据监课/看课，反馈至少 1 个闪光点 + 1 个学习问题点并给建议；</li><li>至少向家长提一个问题（如：课后感觉学得怎么样），确保双向沟通；</li><li>下节课课程预告。时间：首次专题结束后 48h 内；频率：2 周 1 次（新生试学期）；形式：电话/Line。</li></ul></div><div class=\"card\"><div class=\"card-title\">月度回访</div><ul style=\"padding-left:20px;line-height:1.9;margin:8px 0;\"><li>频率：每月 1 次；形式：电话；</li><li>内容：本月专题内容与能力达成、主动提问了解感受、结合监课反馈薄弱点 + 进步点（效果外化）、学习规划、异议处理；</li><li>监控：电话接通且通时 > 3min / 微信已回复；每月跟进 1 次有效或 3 次无效。</li></ul></div><div class=\"card\"><div class=\"card-title\">续费服务月回访</div><ul style=\"padding-left:20px;line-height:1.9;margin:8px 0;\"><li>时间：续费前一个月（依运营拆标逻辑特定池子）；形式：电话/微信；</li><li>内容：过往学习与能力达成反馈、闪光点 + 问题点建议、了解学习感受与目标（双向）、异议处理与本/下级别预告、铺垫长期学习规划。</li></ul></div><div class=\"quiz-group\"><div class=\"quiz-group-head\"><span style=\"font-size:20px;\">✍️</span><h3 style=\"font-size:16px;font-weight:700;margin:0;\">本章考核（选择题 · 全对解锁下一章）</h3><span class=\"quiz-group-status\" id=\"status-s2\">待作答</span></div><div class=\"quiz-card\" id=\"quiz-q3_1\"><div class=\"quiz-question\">专题反馈（新生试学期）的频率是？</div><div class=\"quiz-options\"><div class=\"quiz-option\" data-option=\"0\" onclick='selectQuizOption(this, 0, \"q3_1\")'><span class=\"quiz-option-label\">A</span><span>每周 1 次</span></div><div class=\"quiz-option\" data-option=\"1\" onclick='selectQuizOption(this, 1, \"q3_1\")'><span class=\"quiz-option-label\">B</span><span>2 周 1 次</span></div><div class=\"quiz-option\" data-option=\"2\" onclick='selectQuizOption(this, 2, \"q3_1\")'><span class=\"quiz-option-label\">C</span><span>每月 1 次</span></div><div class=\"quiz-option\" data-option=\"3\" onclick='selectQuizOption(this, 3, \"q3_1\")'><span class=\"quiz-option-label\">D</span><span>每季度 1 次</span></div></div><div class=\"quiz-feedback\" id=\"feedback-q3_1\"></div></div><div class=\"quiz-card\" id=\"quiz-q3_2\"><div class=\"quiz-question\">月度回访的频率与形式为？</div><div class=\"quiz-options\"><div class=\"quiz-option\" data-option=\"0\" onclick='selectQuizOption(this, 0, \"q3_2\")'><span class=\"quiz-option-label\">A</span><span>每月 1 次、电话</span></div><div class=\"quiz-option\" data-option=\"1\" onclick='selectQuizOption(this, 1, \"q3_2\")'><span class=\"quiz-option-label\">B</span><span>每周 1 次、Line</span></div><div class=\"quiz-option\" data-option=\"2\" onclick='selectQuizOption(this, 2, \"q3_2\")'><span class=\"quiz-option-label\">C</span><span>每 2 周 1 次、电话</span></div><div class=\"quiz-option\" data-option=\"3\" onclick='selectQuizOption(this, 3, \"q3_2\")'><span class=\"quiz-option-label\">D</span><span>每季度 1 次、微信</span></div></div><div class=\"quiz-feedback\" id=\"feedback-q3_2\"></div></div><div class=\"quiz-card\" id=\"quiz-q3_3\"><div class=\"quiz-question\">专题反馈应在首次专题结束后多久内完成？</div><div class=\"quiz-options\"><div class=\"quiz-option\" data-option=\"0\" onclick='selectQuizOption(this, 0, \"q3_3\")'><span class=\"quiz-option-label\">A</span><span>24 小时内</span></div><div class=\"quiz-option\" data-option=\"1\" onclick='selectQuizOption(this, 1, \"q3_3\")'><span class=\"quiz-option-label\">B</span><span>48 小时内</span></div><div class=\"quiz-option\" data-option=\"2\" onclick='selectQuizOption(this, 2, \"q3_3\")'><span class=\"quiz-option-label\">C</span><span>一周内</span></div><div class=\"quiz-option\" data-option=\"3\" onclick='selectQuizOption(this, 3, \"q3_3\")'><span class=\"quiz-option-label\">D</span><span>当月内</span></div></div><div class=\"quiz-feedback\" id=\"feedback-q3_3\"></div></div><div class=\"quiz-card\" id=\"quiz-q3_4\"><div class=\"quiz-question\">续费服务月回访应在什么时间进行？</div><div class=\"quiz-options\"><div class=\"quiz-option\" data-option=\"0\" onclick='selectQuizOption(this, 0, \"q3_4\")'><span class=\"quiz-option-label\">A</span><span>报名当月</span></div><div class=\"quiz-option\" data-option=\"1\" onclick='selectQuizOption(this, 1, \"q3_4\")'><span class=\"quiz-option-label\">B</span><span>续费前一个月</span></div><div class=\"quiz-option\" data-option=\"2\" onclick='selectQuizOption(this, 2, \"q3_4\")'><span class=\"quiz-option-label\">C</span><span>结课后</span></div><div class=\"quiz-option\" data-option=\"3\" onclick='selectQuizOption(this, 3, \"q3_4\")'><span class=\"quiz-option-label\">D</span><span>随时</span></div></div><div class=\"quiz-feedback\" id=\"feedback-q3_4\"></div></div><div class=\"quiz-card\" id=\"quiz-q3_5\"><div class=\"quiz-question\">月度回访的监控标准是？</div><div class=\"quiz-options\"><div class=\"quiz-option\" data-option=\"0\" onclick='selectQuizOption(this, 0, \"q3_5\")'><span class=\"quiz-option-label\">A</span><span>电话接通且通时>3min 或 微信已回复</span></div><div class=\"quiz-option\" data-option=\"1\" onclick='selectQuizOption(this, 1, \"q3_5\")'><span class=\"quiz-option-label\">B</span><span>仅看是否续费</span></div><div class=\"quiz-option\" data-option=\"2\" onclick='selectQuizOption(this, 2, \"q3_5\")'><span class=\"quiz-option-label\">C</span><span>无需跟进</span></div><div class=\"quiz-option\" data-option=\"3\" onclick='selectQuizOption(this, 3, \"q3_5\")'><span class=\"quiz-option-label\">D</span><span>只发朋友圈</span></div></div><div class=\"quiz-feedback\" id=\"feedback-q3_5\"></div></div><div class=\"quiz-card\" id=\"quiz-q3_6\"><div class=\"quiz-question\">专题反馈应至少向家长提几个问题以确保双向沟通？</div><div class=\"quiz-options\"><div class=\"quiz-option\" data-option=\"0\" onclick='selectQuizOption(this, 0, \"q3_6\")'><span class=\"quiz-option-label\">A</span><span>0 个</span></div><div class=\"quiz-option\" data-option=\"1\" onclick='selectQuizOption(this, 1, \"q3_6\")'><span class=\"quiz-option-label\">B</span><span>至少 1 个</span></div><div class=\"quiz-option\" data-option=\"2\" onclick='selectQuizOption(this, 2, \"q3_6\")'><span class=\"quiz-option-label\">C</span><span>5 个</span></div><div class=\"quiz-option\" data-option=\"3\" onclick='selectQuizOption(this, 3, \"q3_6\")'><span class=\"quiz-option-label\">D</span><span>10 个</span></div></div><div class=\"quiz-feedback\" id=\"feedback-q3_6\"></div></div><div class=\"quiz-group-actions\"><button class=\"btn btn-outline\" onclick=\"resetQuizGroup(2)\">↺ 重新作答本节</button></div></div>"
+    "content": "<div class=\"card\"><div class=\"card-title\">专题反馈</div><ul style=\"padding-left:20px;line-height:1.9;margin:8px 0;\"><li>本专题所学重点文字 + 图片总结；</li><li>反馈至少 1 个闪光点 + 1 个学习问题点并给建议；</li><li>至少向家长提一个问题确保双向沟通；下节课预告。</li><li>时间：首次专题结束后 48h 内；频率：2 周 1 次；形式：电话/Line。</li></ul></div><div class=\"card\"><div class=\"card-title\">月度回访</div><ul style=\"padding-left:20px;line-height:1.9;margin:8px 0;\"><li>频率：每月 1 次；形式：电话；</li><li>内容：本月专题与能力达成、主动提问了解感受、结合监课反馈薄弱点+进步点、学习规划、异议处理；</li><li>监控：电话接通且通时>3min / 微信已回复。</li></ul></div><div class=\"card\"><div class=\"card-title\">续费服务月回访</div><ul style=\"padding-left:20px;line-height:1.9;margin:8px 0;\"><li>时间：续费前一个月；形式：电话/微信；</li><li>内容：过往学习反馈、闪光点+问题点、了解感受与目标、异议处理与级别预告。</li></ul></div><div class=\"quiz-group\"><div class=\"quiz-group-head\"><span style=\"font-size:20px;\">✍️</span><h3 style=\"font-size:16px;font-weight:700;margin:0;\">本章预热（3 题 · 练习用，不卡关）</h3><span class=\"quiz-group-status\" id=\"status-s2\">练习</span></div><div class=\"quiz-card\" id=\"quiz-q3_1\"><div class=\"quiz-question\">专题反馈（新生试学期）的频率是？</div><div class=\"quiz-options\"><div class=\"quiz-option\" data-option=\"0\" onclick='selectQuizOption(this, 0, \"q3_1\")'><span class=\"quiz-option-label\">A</span><span>每周 1 次</span></div><div class=\"quiz-option\" data-option=\"1\" onclick='selectQuizOption(this, 1, \"q3_1\")'><span class=\"quiz-option-label\">B</span><span>2 周 1 次</span></div><div class=\"quiz-option\" data-option=\"2\" onclick='selectQuizOption(this, 2, \"q3_1\")'><span class=\"quiz-option-label\">C</span><span>每月 1 次</span></div><div class=\"quiz-option\" data-option=\"3\" onclick='selectQuizOption(this, 3, \"q3_1\")'><span class=\"quiz-option-label\">D</span><span>每季度 1 次</span></div></div><div class=\"quiz-feedback\" id=\"feedback-q3_1\"></div></div><div class=\"quiz-card\" id=\"quiz-q3_2\"><div class=\"quiz-question\">月度回访的频率与形式为？</div><div class=\"quiz-options\"><div class=\"quiz-option\" data-option=\"0\" onclick='selectQuizOption(this, 0, \"q3_2\")'><span class=\"quiz-option-label\">A</span><span>每月 1 次、电话</span></div><div class=\"quiz-option\" data-option=\"1\" onclick='selectQuizOption(this, 1, \"q3_2\")'><span class=\"quiz-option-label\">B</span><span>每周 1 次、Line</span></div><div class=\"quiz-option\" data-option=\"2\" onclick='selectQuizOption(this, 2, \"q3_2\")'><span class=\"quiz-option-label\">C</span><span>每 2 周 1 次、电话</span></div><div class=\"quiz-option\" data-option=\"3\" onclick='selectQuizOption(this, 3, \"q3_2\")'><span class=\"quiz-option-label\">D</span><span>每季度 1 次、微信</span></div></div><div class=\"quiz-feedback\" id=\"feedback-q3_2\"></div></div><div class=\"quiz-card\" id=\"quiz-q3_5\"><div class=\"quiz-question\">月度回访的监控标准是？</div><div class=\"quiz-options\"><div class=\"quiz-option\" data-option=\"0\" onclick='selectQuizOption(this, 0, \"q3_5\")'><span class=\"quiz-option-label\">A</span><span>电话接通且通时>3min 或 微信已回复</span></div><div class=\"quiz-option\" data-option=\"1\" onclick='selectQuizOption(this, 1, \"q3_5\")'><span class=\"quiz-option-label\">B</span><span>仅看是否续费</span></div><div class=\"quiz-option\" data-option=\"2\" onclick='selectQuizOption(this, 2, \"q3_5\")'><span class=\"quiz-option-label\">C</span><span>无需跟进</span></div><div class=\"quiz-option\" data-option=\"3\" onclick='selectQuizOption(this, 3, \"q3_5\")'><span class=\"quiz-option-label\">D</span><span>只发朋友圈</span></div></div><div class=\"quiz-feedback\" id=\"feedback-q3_5\"></div></div><div class=\"quiz-group-actions\"><button class=\"btn btn-outline\" onclick=\"resetQuizGroup(2)\">↺ 重做练习</button></div></div><div class=\"ai-practice\" data-sec=\"2\"><div class=\"ai-practice-head\"><span class=\"ai-icon\">🤖</span><h3>AI 模拟对练 · 第 3 章</h3><span class=\"ai-status\" id=\"ai-status-2\">待对练</span></div><div class=\"ai-scenario\" id=\"ai-scenario-2\"></div><div class=\"ai-chat\" id=\"ai-chat-2\"></div><div class=\"ai-input-row\"><textarea id=\"ai-input-2\" placeholder=\"以班导身份输入你的回应话术（自然语言，可多轮）…\"></textarea><button class=\"btn\" onclick=\"aiSend(2)\">发送</button></div><div class=\"ai-actions\"><button class=\"btn btn-outline\" onclick=\"aiScore(2)\">提交评分</button><button class=\"btn btn-outline\" onclick=\"aiReset(2)\">重新对练</button></div><div class=\"ai-score\" id=\"ai-score-2\"></div></div>"
   },
   {
     "id": "s4",
     "title": "停课唤醒",
-    "duration": "8-10分钟",
+    "duration": "12-15分钟",
     "icon": "4",
     "type": "content",
-    "content": "<div class=\"card\"><div class=\"card-title\">停课唤醒思路</div><ul style=\"padding-left:20px;line-height:1.9;margin:8px 0;\"><li>理清家长真正停课的原因；</li><li>表示理解并告知停课规则与课程衔接重要性，尽量坚持上课；</li><li>解决家长疑虑，给出解决方案；</li><li>确认停课日期与开课日期；文字留痕，开课前联系家长排课。</li><li>可能原因：学业紧张/时间冲突/比赛集训/旅游度假/视力问题/身体不适/孩子累/课程跟不上。</li></ul></div><div class=\"script-block script\">【唤醒话术示例】LP：哈喽果果妈妈，我是 VIP THINK 班导老师，小朋友停课一段时间了，最近有没有回来学习的打算呀？我们特别理解孩子时间紧张，但长时间不上课知识点断层会比较大；真正学习兴趣是练出来的，不是等出来的。我帮您找几位老师供选择，多关注多鼓励，先回来试试可以吗？</div><div class=\"quiz-group\"><div class=\"quiz-group-head\"><span style=\"font-size:20px;\">✍️</span><h3 style=\"font-size:16px;font-weight:700;margin:0;\">本章考核（选择题 · 全对解锁下一章）</h3><span class=\"quiz-group-status\" id=\"status-s3\">待作答</span></div><div class=\"quiz-card\" id=\"quiz-q4_1\"><div class=\"quiz-question\">停课唤醒的第一步是？</div><div class=\"quiz-options\"><div class=\"quiz-option\" data-option=\"0\" onclick='selectQuizOption(this, 0, \"q4_1\")'><span class=\"quiz-option-label\">A</span><span>直接推销课程</span></div><div class=\"quiz-option\" data-option=\"1\" onclick='selectQuizOption(this, 1, \"q4_1\")'><span class=\"quiz-option-label\">B</span><span>理清家长真正停课的原因</span></div><div class=\"quiz-option\" data-option=\"2\" onclick='selectQuizOption(this, 2, \"q4_1\")'><span class=\"quiz-option-label\">C</span><span>告知扣费规则</span></div><div class=\"quiz-option\" data-option=\"3\" onclick='selectQuizOption(this, 3, \"q4_1\")'><span class=\"quiz-option-label\">D</span><span>立刻排课</span></div></div><div class=\"quiz-feedback\" id=\"feedback-q4_1\"></div></div><div class=\"quiz-card\" id=\"quiz-q4_2\"><div class=\"quiz-question\">以下哪项不属于常见停课原因？</div><div class=\"quiz-options\"><div class=\"quiz-option\" data-option=\"0\" onclick='selectQuizOption(this, 0, \"q4_2\")'><span class=\"quiz-option-label\">A</span><span>学业紧张 / 时间冲突</span></div><div class=\"quiz-option\" data-option=\"1\" onclick='selectQuizOption(this, 1, \"q4_2\")'><span class=\"quiz-option-label\">B</span><span>比赛集训 / 旅游度假</span></div><div class=\"quiz-option\" data-option=\"2\" onclick='selectQuizOption(this, 2, \"q4_2\")'><span class=\"quiz-option-label\">C</span><span>视力问题 / 身体不适</span></div><div class=\"quiz-option\" data-option=\"3\" onclick='selectQuizOption(this, 3, \"q4_2\")'><span class=\"quiz-option-label\">D</span><span>课程已毕业无需再学</span></div></div><div class=\"quiz-feedback\" id=\"feedback-q4_2\"></div></div><div class=\"quiz-card\" id=\"quiz-q4_3\"><div class=\"quiz-question\">唤醒时应强调长时间不上课会导致？</div><div class=\"quiz-options\"><div class=\"quiz-option\" data-option=\"0\" onclick='selectQuizOption(this, 0, \"q4_3\")'><span class=\"quiz-option-label\">A</span><span>孩子长高</span></div><div class=\"quiz-option\" data-option=\"1\" onclick='selectQuizOption(this, 1, \"q4_3\")'><span class=\"quiz-option-label\">B</span><span>知识点断层</span></div><div class=\"quiz-option\" data-option=\"2\" onclick='selectQuizOption(this, 2, \"q4_3\")'><span class=\"quiz-option-label\">C</span><span>家长省钱</span></div><div class=\"quiz-option\" data-option=\"3\" onclick='selectQuizOption(this, 3, \"q4_3\")'><span class=\"quiz-option-label\">D</span><span>无影响</span></div></div><div class=\"quiz-feedback\" id=\"feedback-q4_3\"></div></div><div class=\"quiz-card\" id=\"quiz-q4_4\"><div class=\"quiz-question\">关于学习兴趣，正确的说法是？</div><div class=\"quiz-options\"><div class=\"quiz-option\" data-option=\"0\" onclick='selectQuizOption(this, 0, \"q4_4\")'><span class=\"quiz-option-label\">A</span><span>兴趣是等出来的</span></div><div class=\"quiz-option\" data-option=\"1\" onclick='selectQuizOption(this, 1, \"q4_4\")'><span class=\"quiz-option-label\">B</span><span>兴趣是练出来的，不是等出来的</span></div><div class=\"quiz-option\" data-option=\"2\" onclick='selectQuizOption(this, 2, \"q4_4\")'><span class=\"quiz-option-label\">C</span><span>兴趣无关紧要</span></div><div class=\"quiz-option\" data-option=\"3\" onclick='selectQuizOption(this, 3, \"q4_4\")'><span class=\"quiz-option-label\">D</span><span>不需要培养</span></div></div><div class=\"quiz-feedback\" id=\"feedback-q4_4\"></div></div><div class=\"quiz-card\" id=\"quiz-q4_5\"><div class=\"quiz-question\">确认停课 / 开课后应？</div><div class=\"quiz-options\"><div class=\"quiz-option\" data-option=\"0\" onclick='selectQuizOption(this, 0, \"q4_5\")'><span class=\"quiz-option-label\">A</span><span>不再联系</span></div><div class=\"quiz-option\" data-option=\"1\" onclick='selectQuizOption(this, 1, \"q4_5\")'><span class=\"quiz-option-label\">B</span><span>文字留痕，开课前联系家长排课</span></div><div class=\"quiz-option\" data-option=\"2\" onclick='selectQuizOption(this, 2, \"q4_5\")'><span class=\"quiz-option-label\">C</span><span>直接删群</span></div><div class=\"quiz-option\" data-option=\"3\" onclick='selectQuizOption(this, 3, \"q4_5\")'><span class=\"quiz-option-label\">D</span><span>立刻收费</span></div></div><div class=\"quiz-feedback\" id=\"feedback-q4_5\"></div></div><div class=\"quiz-card\" id=\"quiz-q4_6\"><div class=\"quiz-question\">处理停课异议时应？</div><div class=\"quiz-options\"><div class=\"quiz-option\" data-option=\"0\" onclick='selectQuizOption(this, 0, \"q4_6\")'><span class=\"quiz-option-label\">A</span><span>强硬要求上课</span></div><div class=\"quiz-option\" data-option=\"1\" onclick='selectQuizOption(this, 1, \"q4_6\")'><span class=\"quiz-option-label\">B</span><span>表示理解并告知规则与衔接重要性，尽量坚持上课</span></div><div class=\"quiz-option\" data-option=\"2\" onclick='selectQuizOption(this, 2, \"q4_6\")'><span class=\"quiz-option-label\">C</span><span>立即退款</span></div><div class=\"quiz-option\" data-option=\"3\" onclick='selectQuizOption(this, 3, \"q4_6\")'><span class=\"quiz-option-label\">D</span><span>置之不理</span></div></div><div class=\"quiz-feedback\" id=\"feedback-q4_6\"></div></div><div class=\"quiz-group-actions\"><button class=\"btn btn-outline\" onclick=\"resetQuizGroup(3)\">↺ 重新作答本节</button></div></div>"
+    "content": "<div class=\"card\"><div class=\"card-title\">停课唤醒思路</div><ul style=\"padding-left:20px;line-height:1.9;margin:8px 0;\"><li>理清家长真正停课的原因；</li><li>表示理解并告知停课规则与课程衔接重要性，尽量坚持上课；</li><li>解决疑虑，给出方案；确认停课/开课日期，文字留痕。</li><li>可能原因：学业紧张/时间冲突/比赛集训/旅游/视力/身体/累/跟不上。</li></ul></div><div class=\"script-block script\">【唤醒】哈喽果果妈妈，我是 VIP THINK 班导老师，小朋友停课一段时间了，最近有没有回来学习的打算呀？我们特别理解孩子时间紧张，但长时间不上课知识点断层会比较大；真正学习兴趣是练出来的，不是等出来的。我帮您找几位老师供选择，多关注多鼓励，先回来试试可以吗？</div><div class=\"quiz-group\"><div class=\"quiz-group-head\"><span style=\"font-size:20px;\">✍️</span><h3 style=\"font-size:16px;font-weight:700;margin:0;\">本章预热（3 题 · 练习用，不卡关）</h3><span class=\"quiz-group-status\" id=\"status-s3\">练习</span></div><div class=\"quiz-card\" id=\"quiz-q4_1\"><div class=\"quiz-question\">停课唤醒的第一步是？</div><div class=\"quiz-options\"><div class=\"quiz-option\" data-option=\"0\" onclick='selectQuizOption(this, 0, \"q4_1\")'><span class=\"quiz-option-label\">A</span><span>直接推销课程</span></div><div class=\"quiz-option\" data-option=\"1\" onclick='selectQuizOption(this, 1, \"q4_1\")'><span class=\"quiz-option-label\">B</span><span>理清家长真正停课的原因</span></div><div class=\"quiz-option\" data-option=\"2\" onclick='selectQuizOption(this, 2, \"q4_1\")'><span class=\"quiz-option-label\">C</span><span>告知扣费规则</span></div><div class=\"quiz-option\" data-option=\"3\" onclick='selectQuizOption(this, 3, \"q4_1\")'><span class=\"quiz-option-label\">D</span><span>立刻排课</span></div></div><div class=\"quiz-feedback\" id=\"feedback-q4_1\"></div></div><div class=\"quiz-card\" id=\"quiz-q4_3\"><div class=\"quiz-question\">唤醒时应强调长时间不上课会导致？</div><div class=\"quiz-options\"><div class=\"quiz-option\" data-option=\"0\" onclick='selectQuizOption(this, 0, \"q4_3\")'><span class=\"quiz-option-label\">A</span><span>孩子长高</span></div><div class=\"quiz-option\" data-option=\"1\" onclick='selectQuizOption(this, 1, \"q4_3\")'><span class=\"quiz-option-label\">B</span><span>知识点断层</span></div><div class=\"quiz-option\" data-option=\"2\" onclick='selectQuizOption(this, 2, \"q4_3\")'><span class=\"quiz-option-label\">C</span><span>家长省钱</span></div><div class=\"quiz-option\" data-option=\"3\" onclick='selectQuizOption(this, 3, \"q4_3\")'><span class=\"quiz-option-label\">D</span><span>无影响</span></div></div><div class=\"quiz-feedback\" id=\"feedback-q4_3\"></div></div><div class=\"quiz-card\" id=\"quiz-q4_6\"><div class=\"quiz-question\">处理停课异议时应？</div><div class=\"quiz-options\"><div class=\"quiz-option\" data-option=\"0\" onclick='selectQuizOption(this, 0, \"q4_6\")'><span class=\"quiz-option-label\">A</span><span>强硬要求上课</span></div><div class=\"quiz-option\" data-option=\"1\" onclick='selectQuizOption(this, 1, \"q4_6\")'><span class=\"quiz-option-label\">B</span><span>表示理解并告知规则与衔接重要性，尽量坚持上课</span></div><div class=\"quiz-option\" data-option=\"2\" onclick='selectQuizOption(this, 2, \"q4_6\")'><span class=\"quiz-option-label\">C</span><span>立即退款</span></div><div class=\"quiz-option\" data-option=\"3\" onclick='selectQuizOption(this, 3, \"q4_6\")'><span class=\"quiz-option-label\">D</span><span>置之不理</span></div></div><div class=\"quiz-feedback\" id=\"feedback-q4_6\"></div></div><div class=\"quiz-group-actions\"><button class=\"btn btn-outline\" onclick=\"resetQuizGroup(3)\">↺ 重做练习</button></div></div><div class=\"ai-practice\" data-sec=\"3\"><div class=\"ai-practice-head\"><span class=\"ai-icon\">🤖</span><h3>AI 模拟对练 · 第 4 章</h3><span class=\"ai-status\" id=\"ai-status-3\">待对练</span></div><div class=\"ai-scenario\" id=\"ai-scenario-3\"></div><div class=\"ai-chat\" id=\"ai-chat-3\"></div><div class=\"ai-input-row\"><textarea id=\"ai-input-3\" placeholder=\"以班导身份输入你的回应话术（自然语言，可多轮）…\"></textarea><button class=\"btn\" onclick=\"aiSend(3)\">发送</button></div><div class=\"ai-actions\"><button class=\"btn btn-outline\" onclick=\"aiScore(3)\">提交评分</button><button class=\"btn btn-outline\" onclick=\"aiReset(3)\">重新对练</button></div><div class=\"ai-score\" id=\"ai-score-3\"></div></div>"
   },
   {
     "id": "s5",
     "title": "老生交接服务",
-    "duration": "8-10分钟",
+    "duration": "12-15分钟",
     "icon": "5",
     "type": "content",
-    "content": "<div class=\"card\"><div class=\"card-title\">定义与场景</div><p>当学员更换班导即存在交接服务，常见于：老班导离职需更换、家长主动更换、组内资源调整。</p></div><div class=\"card\"><div class=\"card-title\">交接注意事项</div><ul style=\"padding-left:20px;line-height:1.9;margin:8px 0;\"><li>Line：交接后把家长标签改为自己并简单自我介绍；了解前班导未解决问题并及时处理；及时回复，不出现服务断档。</li><li>微信：交接后 24h 内进群自我介绍并 @ 家长；来不及则电话 + 加微信 + 短信触达。进群 24h 内：检查授课老师在群（不在则钉钉发码邀请）、加家长微信、了解并解决遗留问题、群内消息及时回复。</li></ul></div><div class=\"script-block script\">【参考话术五步】①开场：XX妈妈您好，我是 VIP THINK 班导 XX 老师。之前 XX 班导因岗位调动不能继续陪伴，已跟我做工作交接，接下来由我跟进。②确认遗留问题：之前有没有什么遗留问题还没解决呢？③近期学习反馈：反馈至少 1 闪光点 + 1 问题点并建议，至少提一个问题确保双向沟通。④提醒学习闭环：坚持提醒小朋友预习、课后复习，帮助吸收巩固。⑤结束语：今天第一次联系但沟通愉快，接下有事随时联系我。</div><div class=\"quiz-group\"><div class=\"quiz-group-head\"><span style=\"font-size:20px;\">✍️</span><h3 style=\"font-size:16px;font-weight:700;margin:0;\">本章考核（选择题 · 全对解锁下一章）</h3><span class=\"quiz-group-status\" id=\"status-s4\">待作答</span></div><div class=\"quiz-card\" id=\"quiz-q5_1\"><div class=\"quiz-question\">微信交接后应在多久内进群自我介绍并 @ 家长？</div><div class=\"quiz-options\"><div class=\"quiz-option\" data-option=\"0\" onclick='selectQuizOption(this, 0, \"q5_1\")'><span class=\"quiz-option-label\">A</span><span>12 小时内</span></div><div class=\"quiz-option\" data-option=\"1\" onclick='selectQuizOption(this, 1, \"q5_1\")'><span class=\"quiz-option-label\">B</span><span>24 小时内</span></div><div class=\"quiz-option\" data-option=\"2\" onclick='selectQuizOption(this, 2, \"q5_1\")'><span class=\"quiz-option-label\">C</span><span>48 小时内</span></div><div class=\"quiz-option\" data-option=\"3\" onclick='selectQuizOption(this, 3, \"q5_1\")'><span class=\"quiz-option-label\">D</span><span>一周内</span></div></div><div class=\"quiz-feedback\" id=\"feedback-q5_1\"></div></div><div class=\"quiz-card\" id=\"quiz-q5_2\"><div class=\"quiz-question\">交接后 Line 上应把家长标签改为？</div><div class=\"quiz-options\"><div class=\"quiz-option\" data-option=\"0\" onclick='selectQuizOption(this, 0, \"q5_2\")'><span class=\"quiz-option-label\">A</span><span>前班导</span></div><div class=\"quiz-option\" data-option=\"1\" onclick='selectQuizOption(this, 1, \"q5_2\")'><span class=\"quiz-option-label\">B</span><span>自己</span></div><div class=\"quiz-option\" data-option=\"2\" onclick='selectQuizOption(this, 2, \"q5_2\")'><span class=\"quiz-option-label\">C</span><span>顾问</span></div><div class=\"quiz-option\" data-option=\"3\" onclick='selectQuizOption(this, 3, \"q5_2\")'><span class=\"quiz-option-label\">D</span><span>不改动</span></div></div><div class=\"quiz-feedback\" id=\"feedback-q5_2\"></div></div><div class=\"quiz-card\" id=\"quiz-q5_3\"><div class=\"quiz-question\">接手后首先应确认？</div><div class=\"quiz-options\"><div class=\"quiz-option\" data-option=\"0\" onclick='selectQuizOption(this, 0, \"q5_3\")'><span class=\"quiz-option-label\">A</span><span>前班导有无遗留未解决问题</span></div><div class=\"quiz-option\" data-option=\"1\" onclick='selectQuizOption(this, 1, \"q5_3\")'><span class=\"quiz-option-label\">B</span><span>家长收入</span></div><div class=\"quiz-option\" data-option=\"2\" onclick='selectQuizOption(this, 2, \"q5_3\")'><span class=\"quiz-option-label\">C</span><span>孩子朋友</span></div><div class=\"quiz-option\" data-option=\"3\" onclick='selectQuizOption(this, 3, \"q5_3\")'><span class=\"quiz-option-label\">D</span><span>无关事项</span></div></div><div class=\"quiz-feedback\" id=\"feedback-q5_3\"></div></div><div class=\"quiz-card\" id=\"quiz-q5_4\"><div class=\"quiz-question\">进群 24h 内不需做以下哪项？</div><div class=\"quiz-options\"><div class=\"quiz-option\" data-option=\"0\" onclick='selectQuizOption(this, 0, \"q5_4\")'><span class=\"quiz-option-label\">A</span><span>检查授课老师是否在群</span></div><div class=\"quiz-option\" data-option=\"1\" onclick='selectQuizOption(this, 1, \"q5_4\")'><span class=\"quiz-option-label\">B</span><span>加家长微信</span></div><div class=\"quiz-option\" data-option=\"2\" onclick='selectQuizOption(this, 2, \"q5_4\")'><span class=\"quiz-option-label\">C</span><span>了解并解决遗留问题</span></div><div class=\"quiz-option\" data-option=\"3\" onclick='selectQuizOption(this, 3, \"q5_4\")'><span class=\"quiz-option-label\">D</span><span>直接推销新课包</span></div></div><div class=\"quiz-feedback\" id=\"feedback-q5_4\"></div></div><div class=\"quiz-card\" id=\"quiz-q5_5\"><div class=\"quiz-question\">交接参考话术的第一步是？</div><div class=\"quiz-options\"><div class=\"quiz-option\" data-option=\"0\" onclick='selectQuizOption(this, 0, \"q5_5\")'><span class=\"quiz-option-label\">A</span><span>开场说明岗位调动与交接</span></div><div class=\"quiz-option\" data-option=\"1\" onclick='selectQuizOption(this, 1, \"q5_5\")'><span class=\"quiz-option-label\">B</span><span>直接要续费</span></div><div class=\"quiz-option\" data-option=\"2\" onclick='selectQuizOption(this, 2, \"q5_5\")'><span class=\"quiz-option-label\">C</span><span>批评前班导</span></div><div class=\"quiz-option\" data-option=\"3\" onclick='selectQuizOption(this, 3, \"q5_5\")'><span class=\"quiz-option-label\">D</span><span>沉默</span></div></div><div class=\"quiz-feedback\" id=\"feedback-q5_5\"></div></div><div class=\"quiz-card\" id=\"quiz-q5_6\"><div class=\"quiz-question\">交接后群内消息应？</div><div class=\"quiz-options\"><div class=\"quiz-option\" data-option=\"0\" onclick='selectQuizOption(this, 0, \"q5_6\")'><span class=\"quiz-option-label\">A</span><span>及时回复，不出现服务断档</span></div><div class=\"quiz-option\" data-option=\"1\" onclick='selectQuizOption(this, 1, \"q5_6\")'><span class=\"quiz-option-label\">B</span><span>隔天才回</span></div><div class=\"quiz-option\" data-option=\"2\" onclick='selectQuizOption(this, 2, \"q5_6\")'><span class=\"quiz-option-label\">C</span><span>不回复</span></div><div class=\"quiz-option\" data-option=\"3\" onclick='selectQuizOption(this, 3, \"q5_6\")'><span class=\"quiz-option-label\">D</span><span>转给别人</span></div></div><div class=\"quiz-feedback\" id=\"feedback-q5_6\"></div></div><div class=\"quiz-group-actions\"><button class=\"btn btn-outline\" onclick=\"resetQuizGroup(4)\">↺ 重新作答本节</button></div></div>"
+    "content": "<div class=\"card\"><div class=\"card-title\">定义与场景</div><p>当学员更换班导即存在交接服务，常见于：老班导离职、家长主动更换、组内资源调整。</p></div><div class=\"card\"><div class=\"card-title\">交接注意事项</div><ul style=\"padding-left:20px;line-height:1.9;margin:8px 0;\"><li>Line：交接后把家长标签改为自己并简单自我介绍；了解前班导未解决问题并及时处理；及时回复。</li><li>微信：交接后 24h 内进群自我介绍并 @ 家长；检查授课老师在群、加家长微信、解决遗留、群内及时回复。</li></ul></div><div class=\"script-block script\">【参考话术五步】①开场：XX妈妈您好，我是 VIP THINK 班导 XX 老师。之前 XX 班导因岗位调动不能继续陪伴，已跟我做工作交接，接下来由我跟进。②确认遗留：之前有没有什么遗留问题还没解决？③近期学习反馈：至少 1 闪光点+1 问题点并建议，提一个问题确保双向沟通。④提醒学习闭环：坚持提醒预习、课后复习。⑤结束：有事随时联系我。</div><div class=\"quiz-group\"><div class=\"quiz-group-head\"><span style=\"font-size:20px;\">✍️</span><h3 style=\"font-size:16px;font-weight:700;margin:0;\">本章预热（3 题 · 练习用，不卡关）</h3><span class=\"quiz-group-status\" id=\"status-s4\">练习</span></div><div class=\"quiz-card\" id=\"quiz-q5_1\"><div class=\"quiz-question\">微信交接后应在多久内进群自我介绍并 @ 家长？</div><div class=\"quiz-options\"><div class=\"quiz-option\" data-option=\"0\" onclick='selectQuizOption(this, 0, \"q5_1\")'><span class=\"quiz-option-label\">A</span><span>12 小时内</span></div><div class=\"quiz-option\" data-option=\"1\" onclick='selectQuizOption(this, 1, \"q5_1\")'><span class=\"quiz-option-label\">B</span><span>24 小时内</span></div><div class=\"quiz-option\" data-option=\"2\" onclick='selectQuizOption(this, 2, \"q5_1\")'><span class=\"quiz-option-label\">C</span><span>48 小时内</span></div><div class=\"quiz-option\" data-option=\"3\" onclick='selectQuizOption(this, 3, \"q5_1\")'><span class=\"quiz-option-label\">D</span><span>一周内</span></div></div><div class=\"quiz-feedback\" id=\"feedback-q5_1\"></div></div><div class=\"quiz-card\" id=\"quiz-q5_3\"><div class=\"quiz-question\">接手后首先应确认？</div><div class=\"quiz-options\"><div class=\"quiz-option\" data-option=\"0\" onclick='selectQuizOption(this, 0, \"q5_3\")'><span class=\"quiz-option-label\">A</span><span>前班导有无遗留未解决问题</span></div><div class=\"quiz-option\" data-option=\"1\" onclick='selectQuizOption(this, 1, \"q5_3\")'><span class=\"quiz-option-label\">B</span><span>家长收入</span></div><div class=\"quiz-option\" data-option=\"2\" onclick='selectQuizOption(this, 2, \"q5_3\")'><span class=\"quiz-option-label\">C</span><span>孩子朋友</span></div><div class=\"quiz-option\" data-option=\"3\" onclick='selectQuizOption(this, 3, \"q5_3\")'><span class=\"quiz-option-label\">D</span><span>无关事项</span></div></div><div class=\"quiz-feedback\" id=\"feedback-q5_3\"></div></div><div class=\"quiz-card\" id=\"quiz-q5_5\"><div class=\"quiz-question\">交接参考话术的第一步是？</div><div class=\"quiz-options\"><div class=\"quiz-option\" data-option=\"0\" onclick='selectQuizOption(this, 0, \"q5_5\")'><span class=\"quiz-option-label\">A</span><span>开场说明岗位调动与交接</span></div><div class=\"quiz-option\" data-option=\"1\" onclick='selectQuizOption(this, 1, \"q5_5\")'><span class=\"quiz-option-label\">B</span><span>直接要续费</span></div><div class=\"quiz-option\" data-option=\"2\" onclick='selectQuizOption(this, 2, \"q5_5\")'><span class=\"quiz-option-label\">C</span><span>批评前班导</span></div><div class=\"quiz-option\" data-option=\"3\" onclick='selectQuizOption(this, 3, \"q5_5\")'><span class=\"quiz-option-label\">D</span><span>沉默</span></div></div><div class=\"quiz-feedback\" id=\"feedback-q5_5\"></div></div><div class=\"quiz-group-actions\"><button class=\"btn btn-outline\" onclick=\"resetQuizGroup(4)\">↺ 重做练习</button></div></div><div class=\"ai-practice\" data-sec=\"4\"><div class=\"ai-practice-head\"><span class=\"ai-icon\">🤖</span><h3>AI 模拟对练 · 第 5 章</h3><span class=\"ai-status\" id=\"ai-status-4\">待对练</span></div><div class=\"ai-scenario\" id=\"ai-scenario-4\"></div><div class=\"ai-chat\" id=\"ai-chat-4\"></div><div class=\"ai-input-row\"><textarea id=\"ai-input-4\" placeholder=\"以班导身份输入你的回应话术（自然语言，可多轮）…\"></textarea><button class=\"btn\" onclick=\"aiSend(4)\">发送</button></div><div class=\"ai-actions\"><button class=\"btn btn-outline\" onclick=\"aiScore(4)\">提交评分</button><button class=\"btn btn-outline\" onclick=\"aiReset(4)\">重新对练</button></div><div class=\"ai-score\" id=\"ai-score-4\"></div></div>"
   },
   {
     "id": "s6",
     "title": "结课外呼",
-    "duration": "8-10分钟",
+    "duration": "12-15分钟",
     "icon": "6",
     "type": "content",
-    "content": "<div class=\"card\"><div class=\"card-title\">结课外呼目标</div><p>针对结业一段时间的学员，外呼关心近况、挖需求、异议处理，并邀约免费试听，唤回续课。</p></div><div class=\"script-block script\">【开场挖需话术】LP：妈妈/爸爸您好，我是 VIP THINK 教学服务老师。小朋友结业一阵子了，最近在学校数学还跟得上吗？当初停课主要是时间排不开，还是小朋友不太想上？我们今年上线 V9 全新课件，专为台湾孩子优化——语言互动、题目情境更贴近台湾生活，课后辅助与教材全部在地化，扣紧台湾数学课纲、融入浅奥思维。兴趣是培养出来的，不是等出来的。</div><div class=\"script-block script\">【邀约试听话术】LP：您之前学的是 SX 级别。我帮您安排 1 节免费体验课，让小朋友玩一节“数学闯关”，喜欢再聊后续，不感兴趣也没损失。请问平时用 LINE 还是什么通讯软件方便？我把课表和时段发给您，并让顾问老师尽快联系，按您对老师的偏好（活泼带动型或严谨细致型）匹配最适合的主讲老师。</div><div class=\"quiz-group\"><div class=\"quiz-group-head\"><span style=\"font-size:20px;\">✍️</span><h3 style=\"font-size:16px;font-weight:700;margin:0;\">本章考核（选择题 · 全对解锁下一章）</h3><span class=\"quiz-group-status\" id=\"status-s5\">待作答</span></div><div class=\"quiz-card\" id=\"quiz-q6_1\"><div class=\"quiz-question\">结课外呼的目标是？</div><div class=\"quiz-options\"><div class=\"quiz-option\" data-option=\"0\" onclick='selectQuizOption(this, 0, \"q6_1\")'><span class=\"quiz-option-label\">A</span><span>关心近况 / 挖需求 / 异议处理 / 邀约试听唤回</span></div><div class=\"quiz-option\" data-option=\"1\" onclick='selectQuizOption(this, 1, \"q6_1\")'><span class=\"quiz-option-label\">B</span><span>直接催续费</span></div><div class=\"quiz-option\" data-option=\"2\" onclick='selectQuizOption(this, 2, \"q6_1\")'><span class=\"quiz-option-label\">C</span><span>拉黑家长</span></div><div class=\"quiz-option\" data-option=\"3\" onclick='selectQuizOption(this, 3, \"q6_1\")'><span class=\"quiz-option-label\">D</span><span>无目标</span></div></div><div class=\"quiz-feedback\" id=\"feedback-q6_1\"></div></div><div class=\"quiz-card\" id=\"quiz-q6_2\"><div class=\"quiz-question\">V9 新课件主要针对哪里孩子优化？</div><div class=\"quiz-options\"><div class=\"quiz-option\" data-option=\"0\" onclick='selectQuizOption(this, 0, \"q6_2\")'><span class=\"quiz-option-label\">A</span><span>香港</span></div><div class=\"quiz-option\" data-option=\"1\" onclick='selectQuizOption(this, 1, \"q6_2\")'><span class=\"quiz-option-label\">B</span><span>台湾</span></div><div class=\"quiz-option\" data-option=\"2\" onclick='selectQuizOption(this, 2, \"q6_2\")'><span class=\"quiz-option-label\">C</span><span>澳门</span></div><div class=\"quiz-option\" data-option=\"3\" onclick='selectQuizOption(this, 3, \"q6_2\")'><span class=\"quiz-option-label\">D</span><span>新加坡</span></div></div><div class=\"quiz-feedback\" id=\"feedback-q6_2\"></div></div><div class=\"quiz-card\" id=\"quiz-q6_3\"><div class=\"quiz-question\">邀约试听应为？</div><div class=\"quiz-options\"><div class=\"quiz-option\" data-option=\"0\" onclick='selectQuizOption(this, 0, \"q6_3\")'><span class=\"quiz-option-label\">A</span><span>1 节免费体验课</span></div><div class=\"quiz-option\" data-option=\"1\" onclick='selectQuizOption(this, 1, \"q6_3\")'><span class=\"quiz-option-label\">B</span><span>必须付费大课</span></div><div class=\"quiz-option\" data-option=\"2\" onclick='selectQuizOption(this, 2, \"q6_3\")'><span class=\"quiz-option-label\">C</span><span>10 节课</span></div><div class=\"quiz-option\" data-option=\"3\" onclick='selectQuizOption(this, 3, \"q6_3\")'><span class=\"quiz-option-label\">D</span><span>不邀约</span></div></div><div class=\"quiz-feedback\" id=\"feedback-q6_3\"></div></div><div class=\"quiz-card\" id=\"quiz-q6_4\"><div class=\"quiz-question\">异议处理中关于兴趣的说法是？</div><div class=\"quiz-options\"><div class=\"quiz-option\" data-option=\"0\" onclick='selectQuizOption(this, 0, \"q6_4\")'><span class=\"quiz-option-label\">A</span><span>兴趣是培养出来的</span></div><div class=\"quiz-option\" data-option=\"1\" onclick='selectQuizOption(this, 1, \"q6_4\")'><span class=\"quiz-option-label\">B</span><span>兴趣靠天生</span></div><div class=\"quiz-option\" data-option=\"2\" onclick='selectQuizOption(this, 2, \"q6_4\")'><span class=\"quiz-option-label\">C</span><span>不用管兴趣</span></div><div class=\"quiz-option\" data-option=\"3\" onclick='selectQuizOption(this, 3, \"q6_4\")'><span class=\"quiz-option-label\">D</span><span>越逼越反感</span></div></div><div class=\"quiz-feedback\" id=\"feedback-q6_4\"></div></div><div class=\"quiz-card\" id=\"quiz-q6_5\"><div class=\"quiz-question\">匹配主讲老师应依据？</div><div class=\"quiz-options\"><div class=\"quiz-option\" data-option=\"0\" onclick='selectQuizOption(this, 0, \"q6_5\")'><span class=\"quiz-option-label\">A</span><span>家长对老师的偏好（活泼带动型 / 严谨细致型）</span></div><div class=\"quiz-option\" data-option=\"1\" onclick='selectQuizOption(this, 1, \"q6_5\")'><span class=\"quiz-option-label\">B</span><span>随机分配</span></div><div class=\"quiz-option\" data-option=\"2\" onclick='selectQuizOption(this, 2, \"q6_5\")'><span class=\"quiz-option-label\">C</span><span>只看价格</span></div><div class=\"quiz-option\" data-option=\"3\" onclick='selectQuizOption(this, 3, \"q6_5\")'><span class=\"quiz-option-label\">D</span><span>不看偏好</span></div></div><div class=\"quiz-feedback\" id=\"feedback-q6_5\"></div></div><div class=\"quiz-card\" id=\"quiz-q6_6\"><div class=\"quiz-question\">结课挖需时首先应关心？</div><div class=\"quiz-options\"><div class=\"quiz-option\" data-option=\"0\" onclick='selectQuizOption(this, 0, \"q6_6\")'><span class=\"quiz-option-label\">A</span><span>最近在学校数学是否跟得上</span></div><div class=\"quiz-option\" data-option=\"1\" onclick='selectQuizOption(this, 1, \"q6_6\")'><span class=\"quiz-option-label\">B</span><span>家长工资</span></div><div class=\"quiz-option\" data-option=\"2\" onclick='selectQuizOption(this, 2, \"q6_6\")'><span class=\"quiz-option-label\">C</span><span>孩子身高</span></div><div class=\"quiz-option\" data-option=\"3\" onclick='selectQuizOption(this, 3, \"q6_6\")'><span class=\"quiz-option-label\">D</span><span>无关话题</span></div></div><div class=\"quiz-feedback\" id=\"feedback-q6_6\"></div></div><div class=\"quiz-group-actions\"><button class=\"btn btn-outline\" onclick=\"resetQuizGroup(5)\">↺ 重新作答本节</button></div></div>"
+    "content": "<div class=\"card\"><div class=\"card-title\">结课外呼目标</div><p>针对结业一段时间的学员，外呼关心近况、挖需求、异议处理，并邀约免费试听，唤回续课。</p></div><div class=\"script-block script\">【开场挖需】妈妈/爸爸您好，我是 VIP THINK 教学服务老师。小朋友结业一阵子了，最近在学校数学还跟得上吗？当初停课主要是时间排不开，还是小朋友不太想上？我们今年上线 V9 全新课件，专为台湾孩子优化。兴趣是培养出来的，不是等出来的。</div><div class=\"script-block script\">【邀约试听】我帮您安排 1 节免费体验课，让小朋友玩一节\"数学闯关\"，喜欢再聊后续。请问平时用 LINE 还是什么通讯软件方便？我按您对老师的偏好（活泼带动型或严谨细致型）匹配最适合的主讲老师。</div><div class=\"quiz-group\"><div class=\"quiz-group-head\"><span style=\"font-size:20px;\">✍️</span><h3 style=\"font-size:16px;font-weight:700;margin:0;\">本章预热（3 题 · 练习用，不卡关）</h3><span class=\"quiz-group-status\" id=\"status-s5\">练习</span></div><div class=\"quiz-card\" id=\"quiz-q6_1\"><div class=\"quiz-question\">结课外呼的目标是？</div><div class=\"quiz-options\"><div class=\"quiz-option\" data-option=\"0\" onclick='selectQuizOption(this, 0, \"q6_1\")'><span class=\"quiz-option-label\">A</span><span>关心近况 / 挖需求 / 异议处理 / 邀约试听唤回</span></div><div class=\"quiz-option\" data-option=\"1\" onclick='selectQuizOption(this, 1, \"q6_1\")'><span class=\"quiz-option-label\">B</span><span>直接催续费</span></div><div class=\"quiz-option\" data-option=\"2\" onclick='selectQuizOption(this, 2, \"q6_1\")'><span class=\"quiz-option-label\">C</span><span>拉黑家长</span></div><div class=\"quiz-option\" data-option=\"3\" onclick='selectQuizOption(this, 3, \"q6_1\")'><span class=\"quiz-option-label\">D</span><span>无目标</span></div></div><div class=\"quiz-feedback\" id=\"feedback-q6_1\"></div></div><div class=\"quiz-card\" id=\"quiz-q6_3\"><div class=\"quiz-question\">邀约试听应为？</div><div class=\"quiz-options\"><div class=\"quiz-option\" data-option=\"0\" onclick='selectQuizOption(this, 0, \"q6_3\")'><span class=\"quiz-option-label\">A</span><span>1 节免费体验课</span></div><div class=\"quiz-option\" data-option=\"1\" onclick='selectQuizOption(this, 1, \"q6_3\")'><span class=\"quiz-option-label\">B</span><span>必须付费大课</span></div><div class=\"quiz-option\" data-option=\"2\" onclick='selectQuizOption(this, 2, \"q6_3\")'><span class=\"quiz-option-label\">C</span><span>10 节课</span></div><div class=\"quiz-option\" data-option=\"3\" onclick='selectQuizOption(this, 3, \"q6_3\")'><span class=\"quiz-option-label\">D</span><span>不邀约</span></div></div><div class=\"quiz-feedback\" id=\"feedback-q6_3\"></div></div><div class=\"quiz-card\" id=\"quiz-q6_5\"><div class=\"quiz-question\">匹配主讲老师应依据？</div><div class=\"quiz-options\"><div class=\"quiz-option\" data-option=\"0\" onclick='selectQuizOption(this, 0, \"q6_5\")'><span class=\"quiz-option-label\">A</span><span>家长对老师的偏好（活泼带动型 / 严谨细致型）</span></div><div class=\"quiz-option\" data-option=\"1\" onclick='selectQuizOption(this, 1, \"q6_5\")'><span class=\"quiz-option-label\">B</span><span>随机分配</span></div><div class=\"quiz-option\" data-option=\"2\" onclick='selectQuizOption(this, 2, \"q6_5\")'><span class=\"quiz-option-label\">C</span><span>只看价格</span></div><div class=\"quiz-option\" data-option=\"3\" onclick='selectQuizOption(this, 3, \"q6_5\")'><span class=\"quiz-option-label\">D</span><span>不看偏好</span></div></div><div class=\"quiz-feedback\" id=\"feedback-q6_5\"></div></div><div class=\"quiz-group-actions\"><button class=\"btn btn-outline\" onclick=\"resetQuizGroup(5)\">↺ 重做练习</button></div></div><div class=\"ai-practice\" data-sec=\"5\"><div class=\"ai-practice-head\"><span class=\"ai-icon\">🤖</span><h3>AI 模拟对练 · 第 6 章</h3><span class=\"ai-status\" id=\"ai-status-5\">待对练</span></div><div class=\"ai-scenario\" id=\"ai-scenario-5\"></div><div class=\"ai-chat\" id=\"ai-chat-5\"></div><div class=\"ai-input-row\"><textarea id=\"ai-input-5\" placeholder=\"以班导身份输入你的回应话术（自然语言，可多轮）…\"></textarea><button class=\"btn\" onclick=\"aiSend(5)\">发送</button></div><div class=\"ai-actions\"><button class=\"btn btn-outline\" onclick=\"aiScore(5)\">提交评分</button><button class=\"btn btn-outline\" onclick=\"aiReset(5)\">重新对练</button></div><div class=\"ai-score\" id=\"ai-score-5\"></div></div>"
   },
   {
     "id": "s7",
     "title": "终极考核",
-    "duration": "15-20分钟",
+    "duration": "20-25分钟",
     "icon": "🏆",
     "type": "content",
-    "content": "<div class=\"card\"><div class=\"card-title\">终极考核说明</div><p>本考核为 <b>模拟首通电话</b> 情境：你是第一次接触学员 <b>果果</b> 的班导（此前未沟通，仅依据下方背景资料）。请先阅读 <b>话术示例</b> 与 <b>得分要点</b>，再在下方文本框中模拟拨打首通电话给果果妈妈。系统将按七大得分要点自动评测，<b>覆盖至少 6/7 个要点</b> 方可通过考核、领取结业证书；未达标可重新作答。</p></div><div class=\"card\"><div class=\"card-title\">📋 考生背景：果果（首次接触）</div><ul style=\"padding-left:20px;line-height:1.9;margin:8px 0;\"><li>姓名：果果（女孩，5 岁，幼儿园大班）</li><li>接听人：妈妈（由果果妈妈接听电话）</li><li>性格：偏慢热、细心</li><li>家长期望：培养数学兴趣、打好逻辑基础</li><li>报名课包：由 SX 级别开始，共 48 课时（含赠送 8 课时），有效期 12 个月</li><li>排课：每周二、四 19:30 上课，每节 40 分钟</li><li>授课语言：普通话</li><li>设备：学生端/家长端 APP 已安装，账号为报名手机号，初始密码 123456</li><li>情境：班导首次接触，此前未沟通，仅依据背景资料</li></ul></div><div class=\"card\"><div class=\"card-title\">💡 话术示例（首通 · 果果）</div><div class=\"script-block script\">果果妈妈您好？我是 VIP THINK 的班导 XX 老师，很高兴跟您电话沟通。您报名了我们的课程，以后果果在 VIP THINK 的学习都会由我全程负责跟进。请问您现在方便接电话吗？今天打给您，主要想确认上课相关信息、说一下开课注意事项，也想了解一下果果的基础情况。果果今年读大班对吗？是小女生对吧？小朋友性格偏慢热还是活泼呀？这次报名咱们想提升哪方面能力呢？我看到果果第一节课时间是周二 19:30，上课软件学生端和家长端 APP 您装好了吗？账号是您登记手机号，默认密码 123456。我们报名了 48 课时包（含赠送 8 课时），由 SX 级别开始，每周二、四 19:30 上课，每节 40 分钟，记得设闹钟准时到课喔。家长端首页“小老师影片”每节课后请果果做小老师讲解一题，能加深理解；上课时间点“在线旁听”可远程看实况。打卡每周在 Line 打一次可得豌豆币，还能兑换直播课。开课三个月内补差价可以优惠价规划完整级别，是唯一一次最低单价机会。今天先不打扰您，之后果果学习上有任何问题随时微信或电话找我，我负责跟进。妈妈再见。</div></div><div class=\"card\"><div class=\"card-title\">🎯 得分要点（首通考核评分维度）</div><ul style=\"padding-left:20px;line-height:1.9;margin:8px 0;\"><li>① 开场：自我介绍（班导/老师/VIP THINK）+ 说明来意（确认开课/注意事项）+ 询问是否方便。</li><li>② 了解学员：确认年级/性别/性格/学习期望，充分聆听互动。</li><li>③ 确认课包：课时与赠送、起始级别(SX)、排课/首课时间/时长/有效期，核对无误。</li><li>④ 介绍家长端：下载 APP、报名手机号登录、初始密码 123456、预习/在线旁听/小老师影片功能。</li><li>⑤ 上课规则：结合学习闭环说明请假-补课-停课-旷课，减少后续异议。</li><li>⑥ 福利与升舱：打卡/转介绍福利；开课三个月内升舱权益铺垫。</li><li>⑦ 收尾：表示全程负责跟进、留下联系方式、请家长随时联系。</li></ul></div><div class=\"dialogue-container\" id=\"finalDialogueBox\"><div style=\"display:flex;align-items:center;gap:8px;margin:18px 0 10px;\"><span style=\"font-size:24px;\">🤖</span><h3 style=\"font-size:16px;font-weight:700;\">模拟首通电话（果果 · 大班女生 · 妈妈接听）</h3></div><div class=\"dialogue-scenario\"><strong>📋 场景设定：</strong>你是 VIP THINK 班导，第一次接触学员果果（女孩，大班，由妈妈接听电话）。请在下方模拟拨打首通电话，<b>完整覆盖上方七大得分要点</b>。可参考话术示例组织话术。</div><div class=\"customer-bubble\">📞（电话接通）果果妈妈：「喂，你好？」</div><textarea class=\"reply-input\" id=\"finalTaskInput\" placeholder=\"请在下方模拟你对果果妈妈说的话（首通完整话术，参考上方话术示例）...\"></textarea><div class=\"dialogue-actions\" style=\"margin-top:12px;display:flex;gap:10px;\"><button class=\"btn\" id=\"submitFinalTaskBtn\" onclick=\"submitFinalTask()\">提交考核</button><button class=\"btn btn-outline\" onclick=\"resetFinalTask()\">重新作答</button></div><div class=\"ai-feedback-panel\" id=\"finalTaskReport\"></div></div>"
+    "content": "<div class=\"card\"><div class=\"card-title\">终极考核说明</div><p>本考核为 <b>AI 综合对练</b>：你是班导，AI 扮演果果妈妈，<b>同时抛出多个异议</b>（价格贵 / 没兴趣 / 怕伤眼睛）。请在下方对话框中以自然语言应对，可多轮推进；打满一定轮数后点「提交评分」，AI 将按 <b>7 个维度</b> 评测，<b>≥70 分 或 覆盖 6/7 维度</b> 方可通过、领取结业证书；未达标可重新对练。</p></div><div class=\"card\"><div class=\"card-title\">📋 考生背景：果果（首次接触）</div><ul style=\"padding-left:20px;line-height:1.9;margin:8px 0;\"><li>姓名：果果（女孩，5 岁，幼儿园大班）</li><li>接听人：妈妈（由果果妈妈接听电话）</li><li>性格：偏慢热、细心</li><li>家长期望：培养数学兴趣、打好逻辑基础</li><li>报名课包：由 SX 级别开始，共 48 课时（含赠送 8 课时），有效期 12 个月</li><li>排课：每周二、四 19:30 上课，每节 40 分钟</li><li>设备：家长端 APP 已装，手机号登录、初始密码 123456</li></ul></div><div class=\"card\"><div class=\"card-title\">💡 话术示例（首通 · 果果）</div><div class=\"script-block script\">果果妈妈您好？我是 VIP THINK 的班导 XX 老师，很高兴跟您电话沟通。您报名了我们的课程，以后果果在 VIP THINK 的学习都会由我全程负责跟进。请问您现在方便接电话吗？今天打给您，主要想确认上课相关信息、说一下开课注意事项，也想了解一下果果的基础情况。果果今年读大班对吗？是小女生对吧？小朋友性格偏慢热还是活泼呀？这次报名咱们想提升哪方面能力呢？我们看到果果第一节课周二 19:30，家长端用报名手机号登录、初始密码 123456，可看预热与在线旁听；每节课后请果果做\"小老师影片\"讲解一题。我们报名 48 课时包（含赠 8），由 SX 级别开始，每周二四 19:30 上课 40 分钟；开课三个月内补差价可优惠规划完整级别。之后果果学习上有任何问题随时微信或电话找我，我负责跟进。妈妈再见。</div></div><div class=\"card\"><div class=\"card-title\">🎯 得分要点（考核评分维度）</div><ul style=\"padding-left:20px;line-height:1.9;margin:8px 0;\"><li>① 流程完整度：开场→了解学员→确认课包→介绍家长端→上课规则→收尾，走完主线。</li><li>② 沟通共情：语气自然、称呼家长、先接住情绪再处理。</li><li>③ 信息核对：确认年级/性格/期望并核对课包参数（SX 级别/课时/排课/时长）。</li><li>④ 权益介绍：家长端 APP 登录（手机号/123456）、在线旁听、小老师影片。</li><li>⑤ 异议处理：用 yes…but… 化解\"太贵/没兴趣/伤眼睛\"等质疑，不硬怼。</li><li>⑥ 跟进闭环：留下联系方式、表示全程负责跟进、请家长随时联系。</li><li>⑦ 话术规范：专业不踩雷（不索要银行卡密码等隐私、不夸大）。</li></ul></div><div class=\"ai-practice\" data-sec=\"6\"><div class=\"ai-practice-head\"><span class=\"ai-icon\">🤖</span><h3>AI 模拟对练 · 第 7 章</h3><span class=\"ai-status\" id=\"ai-status-6\">待对练</span></div><div class=\"ai-scenario\" id=\"ai-scenario-6\"></div><div class=\"ai-chat\" id=\"ai-chat-6\"></div><div class=\"ai-input-row\"><textarea id=\"ai-input-6\" placeholder=\"以班导身份输入你的回应话术（自然语言，可多轮）…\"></textarea><button class=\"btn\" onclick=\"aiSend(6)\">发送</button></div><div class=\"ai-actions\"><button class=\"btn btn-outline\" onclick=\"aiScore(6)\">提交评分</button><button class=\"btn btn-outline\" onclick=\"aiReset(6)\">重新对练</button></div><div class=\"ai-score\" id=\"ai-score-6\"></div></div>"
   }
   ]
 };
@@ -566,8 +586,8 @@ const quizzes = {
       }
     ],
     "correct": 1,
-    "feedback_correct": "✅ 正确！首通流程要求在报名后 <b>24 小时内</b> 完成，及时建立家长信任。",
-    "feedback_wrong": "❌ 不对。首通电话应在报名后 24 小时内完成（得分要点：及时触达、建立信任）。"
+    "feedback_correct": "✅ 正确！首通流程要求在报名后 <b>24 小时内</b> 完成。",
+    "feedback_wrong": "❌ 不对，应是 24 小时内。"
   },
   "q1_2": {
     "question": "首通六步流程的第一步是？",
@@ -590,32 +610,8 @@ const quizzes = {
       }
     ],
     "correct": 1,
-    "feedback_correct": "✅ 正确！第一步是<b>开场白</b>：自我介绍、说明来意、询问是否方便。",
-    "feedback_wrong": "❌ 不对。首步为开场白（自我介绍 + 说明来意 + 询问方便），再进入了解学员等环节。"
-  },
-  "q1_3": {
-    "question": "了解学员时，以下哪项不属于应确认的基本信息？",
-    "options": [
-      {
-        "label": "A",
-        "text": "年级与性别"
-      },
-      {
-        "label": "B",
-        "text": "性格与学习期望"
-      },
-      {
-        "label": "C",
-        "text": "家长的银行卡密码"
-      },
-      {
-        "label": "D",
-        "text": "报名初衷"
-      }
-    ],
-    "correct": 2,
-    "feedback_correct": "✅ 正确！<b>家长的银行卡密码</b> 不属于首通过程需确认的信息。",
-    "feedback_wrong": "❌ 不对。应确认年级/性别/性格/学习期望/报名初衷，银行卡密码无需也不应询问。"
+    "feedback_correct": "✅ 正确！第一步是<b>开场白</b>。",
+    "feedback_wrong": "❌ 不对，先开场白。"
   },
   "q1_4": {
     "question": "确认课包时，应告知家长学员课程由哪个级别开始？",
@@ -638,56 +634,8 @@ const quizzes = {
       }
     ],
     "correct": 1,
-    "feedback_correct": "✅ 正确！课程由 <b>SX 级别</b> 开始（起始级别）。",
-    "feedback_wrong": "❌ 不对。应明确告知由 SX 级别开始，并核对排课/首课/时长。"
-  },
-  "q1_5": {
-    "question": "介绍家长端时，学生端 / 家长端的默认登录方式是？",
-    "options": [
-      {
-        "label": "A",
-        "text": "微信扫码"
-      },
-      {
-        "label": "B",
-        "text": "报名手机号登录、初始密码 123456"
-      },
-      {
-        "label": "C",
-        "text": "邮箱注册"
-      },
-      {
-        "label": "D",
-        "text": "无需登录"
-      }
-    ],
-    "correct": 1,
-    "feedback_correct": "✅ 正确！用<b>报名手机号登录、初始密码 123456</b>，建议登录后尽快修改。",
-    "feedback_wrong": "❌ 不对。默认以报名手机号登录、初始密码 123456，并引导下载 APP、关注服务号。"
-  },
-  "q1_6": {
-    "question": "升舱权益应在开课多久内铺垫，可享受最低单价？",
-    "options": [
-      {
-        "label": "A",
-        "text": "一周内"
-      },
-      {
-        "label": "B",
-        "text": "三个月内"
-      },
-      {
-        "label": "C",
-        "text": "半年内"
-      },
-      {
-        "label": "D",
-        "text": "随时可补"
-      }
-    ],
-    "correct": 1,
-    "feedback_correct": "✅ 正确！开课 <b>三个月内</b> 补差价可优惠规划完整级别，是唯一一次最低单价机会。",
-    "feedback_wrong": "❌ 不对。升舱权益在开课三个月内铺垫，错过则单价更高。"
+    "feedback_correct": "✅ 正确！由 <b>SX 级别</b> 开始。",
+    "feedback_wrong": "❌ 不对，应为 SX 级别。"
   },
   "q2_1": {
     "question": "首课后回访应在什么时间内以电话进行？",
@@ -710,8 +658,8 @@ const quizzes = {
       }
     ],
     "correct": 1,
-    "feedback_correct": "✅ 正确！首课后回访应在 <b>48 小时内</b> 以电话进行。",
-    "feedback_wrong": "❌ 不对。首课后回访时限为 48 小时内（得分要点：及时跟进感受、处理异议）。"
+    "feedback_correct": "✅ 正确！<b>48 小时内</b> 电话回访。",
+    "feedback_wrong": "❌ 不对，48 小时内。"
   },
   "q2_2": {
     "question": "首课监课应提前多久进教室？",
@@ -734,56 +682,8 @@ const quizzes = {
       }
     ],
     "correct": 1,
-    "feedback_correct": "✅ 正确！应<b>提前 5 分钟</b> 进教室，确保师生同时进入、设备无误、课件正常。",
-    "feedback_wrong": "❌ 不对。提前 5 分钟监课，记录高光时刻，设备问题协助建工单。"
-  },
-  "q2_3": {
-    "question": "回访中结合首课报告，应反馈哪些数据？",
-    "options": [
-      {
-        "label": "A",
-        "text": "仅孩子喜好"
-      },
-      {
-        "label": "B",
-        "text": "答对题数 / 正确率 / 课后练习正确率"
-      },
-      {
-        "label": "C",
-        "text": "仅老师评价"
-      },
-      {
-        "label": "D",
-        "text": "无需反馈"
-      }
-    ],
-    "correct": 1,
-    "feedback_correct": "✅ 正确！应反馈<b>答对题数、正确率、课后练习正确率</b> 等学情数据。",
-    "feedback_wrong": "❌ 不对。要结合首课报告外化学情（答对率/练习正确率），效果外化。"
-  },
-  "q2_4": {
-    "question": "课后应建议家长督促孩子养成什么习惯？",
-    "options": [
-      {
-        "label": "A",
-        "text": "少做题"
-      },
-      {
-        "label": "B",
-        "text": "复习并完成课后作业"
-      },
-      {
-        "label": "C",
-        "text": "多报其他课"
-      },
-      {
-        "label": "D",
-        "text": "不用管"
-      }
-    ],
-    "correct": 1,
-    "feedback_correct": "✅ 正确！应督促<b>复习并完成课后作业</b>，养成好习惯。",
-    "feedback_wrong": "❌ 不对。每次上完课内容可回顾、课后作业及时完成，帮他养成习惯。"
+    "feedback_correct": "✅ 正确！<b>提前 5 分钟</b>。",
+    "feedback_wrong": "❌ 不对，提前 5 分钟。"
   },
   "q2_5": {
     "question": "课前 Line 提醒应重点强调学习闭环中的哪一步？",
@@ -806,32 +706,8 @@ const quizzes = {
       }
     ],
     "correct": 0,
-    "feedback_correct": "✅ 正确！课前提醒应重点强调<b>预习</b>。",
-    "feedback_wrong": "❌ 不对。课前 Line 提醒重点强调预习，并确认设备/网络与 APP 已下载。"
-  },
-  "q2_6": {
-    "question": "首课回访的目的不包括？",
-    "options": [
-      {
-        "label": "A",
-        "text": "跟进上课感受"
-      },
-      {
-        "label": "B",
-        "text": "及时处理异议"
-      },
-      {
-        "label": "C",
-        "text": "督促学习习惯"
-      },
-      {
-        "label": "D",
-        "text": "直接推销续费大课包"
-      }
-    ],
-    "correct": 3,
-    "feedback_correct": "✅ 正确！首课回访目的<b>不包括直接推销续费大课包</b>。",
-    "feedback_wrong": "❌ 不对。回访目的是跟进感受、处理异议、督促习惯，而非直接推销续费。"
+    "feedback_correct": "✅ 正确！重点强调<b>预习</b>。",
+    "feedback_wrong": "❌ 不对，强调预习。"
   },
   "q3_1": {
     "question": "专题反馈（新生试学期）的频率是？",
@@ -854,8 +730,8 @@ const quizzes = {
       }
     ],
     "correct": 1,
-    "feedback_correct": "✅ 正确！专题反馈频率为 <b>2 周 1 次</b>（新生试学期）。",
-    "feedback_wrong": "❌ 不对。专题反馈 2 周 1 次；月度回访才是每月 1 次。"
+    "feedback_correct": "✅ 正确！<b>2 周 1 次</b>。",
+    "feedback_wrong": "❌ 不对，2 周 1 次。"
   },
   "q3_2": {
     "question": "月度回访的频率与形式为？",
@@ -878,56 +754,8 @@ const quizzes = {
       }
     ],
     "correct": 0,
-    "feedback_correct": "✅ 正确！月度回访为 <b>每月 1 次、电话</b> 形式。",
-    "feedback_wrong": "❌ 不对。月度回访每月 1 次、电话；专题反馈才是 2 周 1 次。"
-  },
-  "q3_3": {
-    "question": "专题反馈应在首次专题结束后多久内完成？",
-    "options": [
-      {
-        "label": "A",
-        "text": "24 小时内"
-      },
-      {
-        "label": "B",
-        "text": "48 小时内"
-      },
-      {
-        "label": "C",
-        "text": "一周内"
-      },
-      {
-        "label": "D",
-        "text": "当月内"
-      }
-    ],
-    "correct": 1,
-    "feedback_correct": "✅ 正确！首次专题结束后 <b>48 小时内</b> 完成专题反馈。",
-    "feedback_wrong": "❌ 不对。专题反馈时间：首次专题结束后 48h 内。"
-  },
-  "q3_4": {
-    "question": "续费服务月回访应在什么时间进行？",
-    "options": [
-      {
-        "label": "A",
-        "text": "报名当月"
-      },
-      {
-        "label": "B",
-        "text": "续费前一个月"
-      },
-      {
-        "label": "C",
-        "text": "结课后"
-      },
-      {
-        "label": "D",
-        "text": "随时"
-      }
-    ],
-    "correct": 1,
-    "feedback_correct": "✅ 正确！续费服务月回访在 <b>续费前一个月</b> 进行。",
-    "feedback_wrong": "❌ 不对。续费服务月回访依运营拆标逻辑在续费前一个月触达。"
+    "feedback_correct": "✅ 正确！<b>每月 1 次、电话</b>。",
+    "feedback_wrong": "❌ 不对，每月 1 次电话。"
   },
   "q3_5": {
     "question": "月度回访的监控标准是？",
@@ -950,32 +778,8 @@ const quizzes = {
       }
     ],
     "correct": 0,
-    "feedback_correct": "✅ 正确！监控标准为 <b>电话接通且通时>3min / 微信已回复</b>。",
-    "feedback_wrong": "❌ 不对。每月需跟进 1 次有效或 3 次无效，以接通/回复为准。"
-  },
-  "q3_6": {
-    "question": "专题反馈应至少向家长提几个问题以确保双向沟通？",
-    "options": [
-      {
-        "label": "A",
-        "text": "0 个"
-      },
-      {
-        "label": "B",
-        "text": "至少 1 个"
-      },
-      {
-        "label": "C",
-        "text": "5 个"
-      },
-      {
-        "label": "D",
-        "text": "10 个"
-      }
-    ],
-    "correct": 1,
-    "feedback_correct": "✅ 正确！应<b>至少向家长提 1 个问题</b>（如课后感觉如何）确保双向沟通。",
-    "feedback_wrong": "❌ 不对。专题反馈至少提 1 个问题，确保双向沟通，并给下节课预告。"
+    "feedback_correct": "✅ 正确！<b>接通且通时>3min / 微信已回复</b>。",
+    "feedback_wrong": "❌ 不对，以接通/回复为准。"
   },
   "q4_1": {
     "question": "停课唤醒的第一步是？",
@@ -998,32 +802,8 @@ const quizzes = {
       }
     ],
     "correct": 1,
-    "feedback_correct": "✅ 正确！第一步是 <b>理清家长真正停课的原因</b>。",
-    "feedback_wrong": "❌ 不对。先厘清真正原因，再表示理解并给方案。"
-  },
-  "q4_2": {
-    "question": "以下哪项不属于常见停课原因？",
-    "options": [
-      {
-        "label": "A",
-        "text": "学业紧张 / 时间冲突"
-      },
-      {
-        "label": "B",
-        "text": "比赛集训 / 旅游度假"
-      },
-      {
-        "label": "C",
-        "text": "视力问题 / 身体不适"
-      },
-      {
-        "label": "D",
-        "text": "课程已毕业无需再学"
-      }
-    ],
-    "correct": 3,
-    "feedback_correct": "✅ 正确！<b>“课程已毕业无需再学”</b> 不属于常见停课原因。",
-    "feedback_wrong": "❌ 不对。常见原因含学业紧张/集训/旅游/视力/身体/累/跟不上等。"
+    "feedback_correct": "✅ 正确！先<b>理清真正原因</b>。",
+    "feedback_wrong": "❌ 不对，先厘清原因。"
   },
   "q4_3": {
     "question": "唤醒时应强调长时间不上课会导致？",
@@ -1046,56 +826,8 @@ const quizzes = {
       }
     ],
     "correct": 1,
-    "feedback_correct": "✅ 正确！应强调长时间不上课会造成 <b>知识点断层</b>。",
-    "feedback_wrong": "❌ 不对。坚持上课是为避免知识点断层、保持学习衔接。"
-  },
-  "q4_4": {
-    "question": "关于学习兴趣，正确的说法是？",
-    "options": [
-      {
-        "label": "A",
-        "text": "兴趣是等出来的"
-      },
-      {
-        "label": "B",
-        "text": "兴趣是练出来的，不是等出来的"
-      },
-      {
-        "label": "C",
-        "text": "兴趣无关紧要"
-      },
-      {
-        "label": "D",
-        "text": "不需要培养"
-      }
-    ],
-    "correct": 1,
-    "feedback_correct": "✅ 正确！<b>兴趣是练出来的，不是等出来的</b>。",
-    "feedback_wrong": "❌ 不对。真正的学习兴趣是练出来的，多关注多鼓励、先回来试试。"
-  },
-  "q4_5": {
-    "question": "确认停课 / 开课后应？",
-    "options": [
-      {
-        "label": "A",
-        "text": "不再联系"
-      },
-      {
-        "label": "B",
-        "text": "文字留痕，开课前联系家长排课"
-      },
-      {
-        "label": "C",
-        "text": "直接删群"
-      },
-      {
-        "label": "D",
-        "text": "立刻收费"
-      }
-    ],
-    "correct": 1,
-    "feedback_correct": "✅ 正确！应<b>文字留痕，开课前联系家长排课</b>。",
-    "feedback_wrong": "❌ 不对。确认停课/开课日期，文字留痕，开课前联系家长排课。"
+    "feedback_correct": "✅ 正确！会造成 <b>知识点断层</b>。",
+    "feedback_wrong": "❌ 不对，知识点断层。"
   },
   "q4_6": {
     "question": "处理停课异议时应？",
@@ -1118,8 +850,8 @@ const quizzes = {
       }
     ],
     "correct": 1,
-    "feedback_correct": "✅ 正确！应<b>表示理解 + 告知规则与衔接重要性，尽量坚持上课</b>。",
-    "feedback_wrong": "❌ 不对。先共情再解决疑虑、给方案，尽量坚持上课。"
+    "feedback_correct": "✅ 正确！<b>理解 + 告知规则，尽量坚持</b>。",
+    "feedback_wrong": "❌ 不对，先共情再解决。"
   },
   "q5_1": {
     "question": "微信交接后应在多久内进群自我介绍并 @ 家长？",
@@ -1142,32 +874,8 @@ const quizzes = {
       }
     ],
     "correct": 1,
-    "feedback_correct": "✅ 正确！交接后应于 <b>24 小时内</b> 进群自我介绍并 @ 家长。",
-    "feedback_wrong": "❌ 不对。微信交接后 24h 内进群自我介绍 @ 家长；来不及则电话+加微信+短信。"
-  },
-  "q5_2": {
-    "question": "交接后 Line 上应把家长标签改为？",
-    "options": [
-      {
-        "label": "A",
-        "text": "前班导"
-      },
-      {
-        "label": "B",
-        "text": "自己"
-      },
-      {
-        "label": "C",
-        "text": "顾问"
-      },
-      {
-        "label": "D",
-        "text": "不改动"
-      }
-    ],
-    "correct": 1,
-    "feedback_correct": "✅ 正确！Line 上把家长标签改为 <b>自己</b> 并简单自我介绍。",
-    "feedback_wrong": "❌ 不对。交接后 Line 标签改为自己，微信进群自我介绍。"
+    "feedback_correct": "✅ 正确！<b>24 小时内</b>。",
+    "feedback_wrong": "❌ 不对，24 小时内。"
   },
   "q5_3": {
     "question": "接手后首先应确认？",
@@ -1190,32 +898,8 @@ const quizzes = {
       }
     ],
     "correct": 0,
-    "feedback_correct": "✅ 正确！接手后首先确认 <b>前班导有无遗留未解决问题</b>。",
-    "feedback_wrong": "❌ 不对。先了解并处理遗留问题，再反馈近期学习情况。"
-  },
-  "q5_4": {
-    "question": "进群 24h 内不需做以下哪项？",
-    "options": [
-      {
-        "label": "A",
-        "text": "检查授课老师是否在群"
-      },
-      {
-        "label": "B",
-        "text": "加家长微信"
-      },
-      {
-        "label": "C",
-        "text": "了解并解决遗留问题"
-      },
-      {
-        "label": "D",
-        "text": "直接推销新课包"
-      }
-    ],
-    "correct": 3,
-    "feedback_correct": "✅ 正确！进群 24h 内<b>不需要直接推销新课包</b>。",
-    "feedback_wrong": "❌ 不对。应检查老师是否在群、加微信、解决遗留、及时回复，先稳住服务。"
+    "feedback_correct": "✅ 正确！先确认 <b>遗留未解决问题</b>。",
+    "feedback_wrong": "❌ 不对，先处理遗留。"
   },
   "q5_5": {
     "question": "交接参考话术的第一步是？",
@@ -1238,32 +922,8 @@ const quizzes = {
       }
     ],
     "correct": 0,
-    "feedback_correct": "✅ 正确！第一步是<b>开场说明岗位调动与交接</b>。",
-    "feedback_wrong": "❌ 不对。参考话术五步：开场→确认遗留→学习反馈→提醒闭环→结束。"
-  },
-  "q5_6": {
-    "question": "交接后群内消息应？",
-    "options": [
-      {
-        "label": "A",
-        "text": "及时回复，不出现服务断档"
-      },
-      {
-        "label": "B",
-        "text": "隔天才回"
-      },
-      {
-        "label": "C",
-        "text": "不回复"
-      },
-      {
-        "label": "D",
-        "text": "转给别人"
-      }
-    ],
-    "correct": 0,
-    "feedback_correct": "✅ 正确！群内消息应 <b>及时回复，不出现服务断档</b>。",
-    "feedback_wrong": "❌ 不对。交接后及时回复、了解并解决遗留问题，避免断档。"
+    "feedback_correct": "✅ 正确！第一步<b>说明岗位调动与交接</b>。",
+    "feedback_wrong": "❌ 不对，先开场说明交接。"
   },
   "q6_1": {
     "question": "结课外呼的目标是？",
@@ -1286,32 +946,8 @@ const quizzes = {
       }
     ],
     "correct": 0,
-    "feedback_correct": "✅ 正确！目标是 <b>关心近况、挖需求、异议处理、邀约免费试听唤回</b>。",
-    "feedback_wrong": "❌ 不对。结课外呼先挖需再邀约试听，而非直接催续费。"
-  },
-  "q6_2": {
-    "question": "V9 新课件主要针对哪里孩子优化？",
-    "options": [
-      {
-        "label": "A",
-        "text": "香港"
-      },
-      {
-        "label": "B",
-        "text": "台湾"
-      },
-      {
-        "label": "C",
-        "text": "澳门"
-      },
-      {
-        "label": "D",
-        "text": "新加坡"
-      }
-    ],
-    "correct": 1,
-    "feedback_correct": "✅ 正确！V9 新课件专为 <b>台湾</b> 孩子优化（课纲/在地化/浅奥）。",
-    "feedback_wrong": "❌ 不对。V9 课件针对台湾孩子优化，扣紧台湾数学课纲、融入浅奥思维。"
+    "feedback_correct": "✅ 正确！<b>挖需 + 异议处理 + 邀约试听</b>。",
+    "feedback_wrong": "❌ 不对，先挖需再邀约。"
   },
   "q6_3": {
     "question": "邀约试听应为？",
@@ -1334,32 +970,8 @@ const quizzes = {
       }
     ],
     "correct": 0,
-    "feedback_correct": "✅ 正确！邀约 <b>1 节免费体验课</b>（如“数学闯关”）。",
-    "feedback_wrong": "❌ 不对。安排 1 节免费体验课，喜欢再聊后续，家长无损失。"
-  },
-  "q6_4": {
-    "question": "异议处理中关于兴趣的说法是？",
-    "options": [
-      {
-        "label": "A",
-        "text": "兴趣是培养出来的"
-      },
-      {
-        "label": "B",
-        "text": "兴趣靠天生"
-      },
-      {
-        "label": "C",
-        "text": "不用管兴趣"
-      },
-      {
-        "label": "D",
-        "text": "越逼越反感"
-      }
-    ],
-    "correct": 0,
-    "feedback_correct": "✅ 正确！<b>兴趣是培养出来的</b>，不是等出来的。",
-    "feedback_wrong": "❌ 不对。用“兴趣是培养出来的”做正向引导，再邀约体验。"
+    "feedback_correct": "✅ 正确！<b>1 节免费体验课</b>。",
+    "feedback_wrong": "❌ 不对，免费体验课。"
   },
   "q6_5": {
     "question": "匹配主讲老师应依据？",
@@ -1382,200 +994,8 @@ const quizzes = {
       }
     ],
     "correct": 0,
-    "feedback_correct": "✅ 正确！依据 <b>家长对老师的偏好</b> 匹配最适合的主讲老师。",
-    "feedback_wrong": "❌ 不对。按家长偏好（活泼带动型或严谨细致型）匹配主讲老师。"
-  },
-  "q6_6": {
-    "question": "结课挖需时首先应关心？",
-    "options": [
-      {
-        "label": "A",
-        "text": "最近在学校数学是否跟得上"
-      },
-      {
-        "label": "B",
-        "text": "家长工资"
-      },
-      {
-        "label": "C",
-        "text": "孩子身高"
-      },
-      {
-        "label": "D",
-        "text": "无关话题"
-      }
-    ],
-    "correct": 0,
-    "feedback_correct": "✅ 正确！首先关心 <b>最近在学校数学是否跟得上</b>。",
-    "feedback_wrong": "❌ 不对。先关心近况与在校数学情况，再挖停课原因与需求。"
-  },
-  "q7_1": {
-    "question": "首通开场白第一步应？",
-    "options": [
-      {
-        "label": "A",
-        "text": "直接推销课程"
-      },
-      {
-        "label": "B",
-        "text": "自我介绍、说明来意并询问是否方便"
-      },
-      {
-        "label": "C",
-        "text": "先问家长要钱"
-      },
-      {
-        "label": "D",
-        "text": "直接确认课包"
-      }
-    ],
-    "correct": 1,
-    "feedback_correct": "✅ 正确！开场先 <b>自我介绍、说明来意、询问是否方便</b>。",
-    "feedback_wrong": "❌ 不对。得分要点①：开场=自我介绍（班导/老师/VIP THINK）+说明来意+询问方便。"
-  },
-  "q7_2": {
-    "question": "首次接触果果，了解学员时应优先确认？",
-    "options": [
-      {
-        "label": "A",
-        "text": "家长收入"
-      },
-      {
-        "label": "B",
-        "text": "年级 / 性别 / 性格 / 学习期望"
-      },
-      {
-        "label": "C",
-        "text": "孩子朋友名字"
-      },
-      {
-        "label": "D",
-        "text": "家庭住址"
-      }
-    ],
-    "correct": 1,
-    "feedback_correct": "✅ 正确！应确认 <b>年级/性别/性格/学习期望</b>。",
-    "feedback_wrong": "❌ 不对。得分要点②：了解学员=确认年级/性别/性格/学习期望，充分聆听。"
-  },
-  "q7_3": {
-    "question": "确认课包时，应告知果果课程由哪个级别开始？",
-    "options": [
-      {
-        "label": "A",
-        "text": "S9"
-      },
-      {
-        "label": "B",
-        "text": "SX"
-      },
-      {
-        "label": "C",
-        "text": "S1（大学）"
-      },
-      {
-        "label": "D",
-        "text": "不告知"
-      }
-    ],
-    "correct": 1,
-    "feedback_correct": "✅ 正确！应告知由 <b>SX 级别</b> 开始。",
-    "feedback_wrong": "❌ 不对。得分要点③：确认课包=课时与赠送、起始级别(SX)、排课/首课/时长/有效期。"
-  },
-  "q7_4": {
-    "question": "介绍家长端时正确说法是？",
-    "options": [
-      {
-        "label": "A",
-        "text": "无需下载"
-      },
-      {
-        "label": "B",
-        "text": "用报名手机号登录、初始密码 123456、可看预热与在线旁听"
-      },
-      {
-        "label": "C",
-        "text": "只能电脑"
-      },
-      {
-        "label": "D",
-        "text": "家长端收费"
-      }
-    ],
-    "correct": 1,
-    "feedback_correct": "✅ 正确！<b>报名手机号登录、初始密码 123456</b>，可看预热与在线旁听。",
-    "feedback_wrong": "❌ 不对。得分要点④：介绍家长端=下载APP+手机号登录+初始密码123456+预习/旁听/小老师影片。"
-  },
-  "q7_5": {
-    "question": "结合学习闭环说明上课规则，主要目的是？",
-    "options": [
-      {
-        "label": "A",
-        "text": "增加收费"
-      },
-      {
-        "label": "B",
-        "text": "减少后续请假 / 补课 / 停课等异议"
-      },
-      {
-        "label": "C",
-        "text": "吓唬家长"
-      },
-      {
-        "label": "D",
-        "text": "无意义"
-      }
-    ],
-    "correct": 1,
-    "feedback_correct": "✅ 正确！说明规则是为 <b>减少后续请假/补课/停课等异议</b>。",
-    "feedback_wrong": "❌ 不对。得分要点⑤：上课规则=结合学习闭环说明请假-补课-停课-旷课，前置化解异议。"
-  },
-  "q7_6": {
-    "question": "福利与升舱中，应在开课多久内铺垫升舱权益？",
-    "options": [
-      {
-        "label": "A",
-        "text": "一周内"
-      },
-      {
-        "label": "B",
-        "text": "三个月内"
-      },
-      {
-        "label": "C",
-        "text": "半年内"
-      },
-      {
-        "label": "D",
-        "text": "随时"
-      }
-    ],
-    "correct": 1,
-    "feedback_correct": "✅ 正确！开课 <b>三个月内</b> 铺垫升舱权益。",
-    "feedback_wrong": "❌ 不对。得分要点⑥：福利与升舱=打卡/转介绍福利 + 三个月内升舱权益铺垫。"
-  },
-  "q7_7": {
-    "question": "首通收尾应？",
-    "options": [
-      {
-        "label": "A",
-        "text": "立刻挂电话"
-      },
-      {
-        "label": "B",
-        "text": "表示全程负责跟进、留下联系方式、请家长随时联系"
-      },
-      {
-        "label": "C",
-        "text": "不再联系"
-      },
-      {
-        "label": "D",
-        "text": "推销其他产品"
-      }
-    ],
-    "correct": 1,
-    "feedback_correct": "✅ 正确！收尾应 <b>表示全程负责跟进、留下联系方式、请家长随时联系</b>。",
-    "feedback_wrong": "❌ 不对。得分要点⑦：收尾=全程负责跟进+留下联系方式+请家长随时联系。"
+    "feedback_correct": "✅ 正确！依据 <b>家长偏好</b> 匹配。",
+    "feedback_wrong": "❌ 不对，按家长偏好匹配。"
   }
 };
 
@@ -1586,36 +1006,73 @@ const LS_PREFIX = 'vipthink_tw_lp_zh';
 let currentSection = 0;
 let completedSections = new Set();
 let quizState = {};
-let finalScore = 0;
-let finalTaskSubmitted = false;
-const quizGroups = {"0": ["q1_1", "q1_2", "q1_3", "q1_4", "q1_5", "q1_6"], "1": ["q2_1", "q2_2", "q2_3", "q2_4", "q2_5", "q2_6"], "2": ["q3_1", "q3_2", "q3_3", "q3_4", "q3_5", "q3_6"], "3": ["q4_1", "q4_2", "q4_3", "q4_4", "q4_5", "q4_6"], "4": ["q5_1", "q5_2", "q5_3", "q5_4", "q5_5", "q5_6"], "5": ["q6_1", "q6_2", "q6_3", "q6_4", "q6_5", "q6_6"]};
+const quizGroups = {"0": ["q1_1", "q1_2", "q1_4"], "1": ["q2_1", "q2_2", "q2_5"], "2": ["q3_1", "q3_2", "q3_5"], "3": ["q4_1", "q4_3", "q4_6"], "4": ["q5_1", "q5_3", "q5_5"], "5": ["q6_1", "q6_3", "q6_5"]};
 function getGroup(i){ return quizGroups[i] || []; }
-function sectionPassed(i){
-  const g = getGroup(i);
-  if (!g.length) return false;
-  return g.every(function(qid){ const s = quizState[qid]; return !!(s && s.answered && s.correct); });
-}
-function finalExamPassed(){ return sectionPassed(courseData.sections.length - 1); }
+function sectionPassed(i){ const g=getGroup(i); if(!g.length) return false; return g.every(function(qid){ const s=quizState[qid]; return !!(s&&s.answered&&s.correct); }); }
 function updateGroupStatus(i){
-  const el = document.getElementById('status-s' + i);
-  if (!el) return;
-  const g = getGroup(i);
-  let answered = 0, correct = 0;
-  g.forEach(function(qid){ const s = quizState[qid]; if (s && s.answered){ answered++; if (s.correct) correct++; } });
-  if (g.length && correct === g.length){ el.textContent = '✅ 已全部答对 (' + correct + '/' + g.length + ')'; el.className = 'quiz-group-status ok'; }
-  else if (answered === 0){ el.textContent = '待作答（共' + g.length + '题）'; el.className = 'quiz-group-status'; }
-  else { el.textContent = '需重答：已答对 ' + correct + '/' + g.length; el.className = 'quiz-group-status warn'; }
+  const el=document.getElementById('status-s'+i); if(!el) return;
+  const g=getGroup(i); let answered=0,correct=0;
+  g.forEach(function(qid){ const s=quizState[qid]; if(s&&s.answered){answered++; if(s.correct)correct++;} });
+  if(g.length&&correct===g.length){ el.textContent='✅ 全部答对 ('+correct+'/'+g.length+')'; el.className='quiz-group-status ok'; }
+  else if(answered===0){ el.textContent='练习（共'+g.length+'题）'; el.className='quiz-group-status'; }
+  else { el.textContent='已答对 '+correct+'/'+g.length; el.className='quiz-group-status warn'; }
 }
-function resetQuizGroup(i){
-  getGroup(i).forEach(function(qid){
-    const st = quizState[qid]; if (st){ st.answered = false; st.correct = false; }
-    const card = document.getElementById('quiz-' + qid);
-    if (card){ card.classList.remove('answered-correct','answered-wrong');
-      card.querySelectorAll('.quiz-option').forEach(function(o){ o.classList.remove('selected','correct','wrong','done'); }); }
-    const fb = document.getElementById('feedback-' + qid); if (fb){ fb.className = 'quiz-feedback'; fb.innerHTML = ''; }
+function resetQuizGroup(i){ getGroup(i).forEach(function(qid){ const st=quizState[qid]; if(st){st.answered=false;st.correct=false;} const card=document.getElementById('quiz-'+qid); if(card){ card.classList.remove('answered-correct','answered-wrong'); card.querySelectorAll('.quiz-option').forEach(function(o){o.classList.remove('selected','correct','wrong','done');}); } const fb=document.getElementById('feedback-'+qid); if(fb){fb.className='quiz-feedback';fb.innerHTML='';} }); updateGroupStatus(i); saveProgress(); }
+const AI_SCENARIOS = {"0": {"title": "首通电话 · 果果（首次接触）", "html": "学员：果果，女孩，5 岁，幼儿园大班，性格偏慢热、细心；家长期望：培养数学兴趣、打好逻辑基础；课包：由 SX 级别开始，共 48 课时（含赠送 8 课时），有效期 12 个月；排课：每周二、四 19:30 上课，每节 40 分钟；家长端 APP 已安装，账号为报名手机号，初始密码 123456；班导首次接触，此前未沟通。接听人：妈妈。", "objection": "你（妈妈）心里犯嘀咕：孩子才 5 岁，上这个思维课会不会太早？而且你也不确定她坐不坐得住、能不能跟得上，想先听听班导怎么说。"}, "1": {"title": "首课回访 · 48h", "html": "学员：果果，女孩，大班，刚上完第一节正式课；家长期望培养数学兴趣；班导在首课后 48 小时内电话回访。接听人：妈妈。", "objection": "果果回家说\"有点难、不太想上了\"，你（妈妈）也有点犹豫，想问问班导这正常吗、要不要先缓一缓。"}, "2": {"title": "专题 / 月度回访", "html": "学员：果果，已学了一阵子；班导做月度电话回访，结合监课反馈学情。接听人：妈妈。", "objection": "你（妈妈）觉得\"好像没看到什么明显进步，你们顾问都说得挺好，但我不太确定值不值\"，态度有点敷衍。"}, "3": {"title": "停课唤醒", "html": "学员：果果，因故申请停课；班导致电唤醒，理清原因、尽量坚持上课。接听人：妈妈。", "objection": "你（妈妈）说\"最近孩子学校功课太多、周末还有别的班，先停一段时间吧\"，语气平和但已下定决心。"}, "4": {"title": "老生交接", "html": "学员：果果，原班导离职，新班导刚完成交接、首次致电家长。接听人：妈妈。", "objection": "你（妈妈）有点不满：\"怎么又换老师？之前那个挺好的，孩子也习惯了\"，对新班导持观望态度。"}, "5": {"title": "结课外呼 · 唤回", "html": "学员：果果，结业已一段时间；班导外呼关心近况、挖需求、邀约免费试听唤回。接听人：妈妈。", "objection": "你（妈妈）说\"结课了，暂时不想续了，谢谢关心\"，态度客气但明确拒绝。"}, "6": {"title": "终极综合 · 续费挽留", "html": "学员：果果，临近续费节点；班导做综合续费挽留通话，需同时处理多个异议并促成。接听人：妈妈。", "objection": "你（妈妈）一次抛出多个顾虑：\"太贵了，而且孩子好像也没多大兴趣，我还怕看屏幕伤眼睛，我再想想吧。\""}};
+const DIM_MAX = {流程完整度:15,沟通共情:15,信息核对:15,权益介绍:15,异议处理:15,跟进闭环:15,话术规范:10};
+let aiState = {};
+let aiProxyUrl = '';
+function aiPassed(sec){ const s=aiState[sec]; return !!(s&&s.passed); }
+function lpEscapeHtml(s){ s=String(s); var q=String.fromCharCode(34); return s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(new RegExp(q,'g'),'&quot;').replace(/'/g,'&#39;'); }
+function loadAISettings(){ aiProxyUrl = localStorage.getItem(LS_PREFIX + '_aiproxy') || ''; const inp=document.getElementById('aiProxyUrl'); if(inp) inp.value=aiProxyUrl; }
+function saveAISettings(){ aiProxyUrl=(document.getElementById('aiProxyUrl').value||'').trim(); localStorage.setItem(LS_PREFIX + '_aiproxy', aiProxyUrl); showToast('代理地址已保存','success'); }
+function initAIPractice(){
+  loadAISettings();
+  document.querySelectorAll('.ai-practice').forEach(function(box){
+    const sec=parseInt(box.dataset.sec,10);
+    if(!aiState[sec]) aiState[sec]={history:[],passed:false,total:0,dims:{},weak:[],comment:''};
+    const sc=AI_SCENARIOS[sec]; const scEl=document.getElementById('ai-scenario-'+sec);
+    if(sc&&scEl){ scEl.innerHTML='<strong>📋 场景：</strong>'+lpEscapeHtml(sc.html)+'<br><strong>🗣 家长可能的反应：</strong>'+lpEscapeHtml(sc.objection); }
+    const st=aiState[sec]; const chat=document.getElementById('ai-chat-'+sec);
+    if(chat&&st.history.length){ chat.innerHTML=st.history.map(function(m){ const cls=m.role==='user'?'cc':'parent'; const who=m.role==='user'?'班导(你)':'家长'; return '<div class="ai-msg '+cls+'"><span class="who">'+who+'</span>'+lpEscapeHtml(m.content)+'</div>'; }).join(''); chat.scrollTop=chat.scrollHeight; }
+    updateAIStatus(sec); if(st.passed&&st.total) showAIScore(sec, st, false);
   });
-  updateGroupStatus(i); updateSidebarLocks(); saveProgress();
+  updateSidebarLocks();
 }
+function updateAIStatus(sec){ const el=document.getElementById('ai-status-'+sec); if(!el) return; const st=aiState[sec]; if(st&&st.passed){ el.textContent='✅ 已通过 ('+st.total+'分)'; el.className='ai-status ok'; } else if(st&&st.total){ el.textContent='需重练：'+st.total+'分'; el.className='ai-status warn'; } else { el.textContent='待对练'; el.className='ai-status'; } }
+function aiSend(sec){
+  if(!aiProxyUrl){ showToast('请先在右上角 ⚙️ 填写并保存 AI 代理地址','warning'); return; }
+  const ta=document.getElementById('ai-input-'+sec); const text=(ta.value||'').trim();
+  if(!text){ showToast('请先输入你的回应','warning'); return; }
+  if(!aiState[sec]) aiState[sec]={history:[],passed:false};
+  aiState[sec].history.push({role:'user',content:text}); ta.value='';
+  const chat=document.getElementById('ai-chat-'+sec);
+  chat.innerHTML+='<div class="ai-msg cc"><span class="who">班导(你)</span>'+lpEscapeHtml(text)+'</div>';
+  const base=aiProxyUrl.replace(/\/$/,'');
+  fetch(base+'/chat',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({scenario:AI_SCENARIOS[sec],history:aiState[sec].history})})
+    .then(function(r){return r.json();}).then(function(d){ const reply=d.reply||'(家长没有回应)'; aiState[sec].history.push({role:'assistant',content:reply}); chat.innerHTML+='<div class="ai-msg parent"><span class="who">家长</span>'+lpEscapeHtml(reply)+'</div>'; chat.scrollTop=chat.scrollHeight; saveProgress(); })
+    .catch(function(e){ chat.innerHTML+='<div class="ai-msg sys">⚠️ 调用 AI 失败：'+(e&&e.message?e.message:e)+'</div>'; });
+}
+function aiScore(sec){
+  if(!aiProxyUrl){ showToast('请先在右上角 ⚙️ 填写并保存 AI 代理地址','warning'); return; }
+  const st=aiState[sec]; if(!st||!st.history.length){ showToast('请先完成至少一轮对练再评分','warning'); return; }
+  const transcript=st.history.map(function(m){ return (m.role==='user'?'班导：':'家长：')+m.content; }).join('\n');
+  const base=aiProxyUrl.replace(/\/$/,'');
+  fetch(base+'/score',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({scenario:AI_SCENARIOS[sec],transcript:transcript})})
+    .then(function(r){return r.json();}).then(function(d){ const dims=d.dims||{}; st.dims=dims; st.total=d.total||0; st.weak=d.weak||[]; st.comment=d.comment||''; const covered=Object.keys(dims).filter(function(k){return (dims[k]||0)>0;}).length; st.passed=(st.total>=70)||(covered>=6); showAIScore(sec,st,true); updateAIStatus(sec); updateSidebarLocks(); saveProgress(); })
+    .catch(function(e){ const panel=document.getElementById('ai-score-'+sec); if(panel){panel.className='ai-score show'; panel.innerHTML='<div class="ai-score-err">⚠️ 评分失败：'+(e&&e.message?e.message:e)+'</div>';} });
+}
+function showAIScore(sec, st, toastMsg){
+  const panel=document.getElementById('ai-score-'+sec); if(!panel) return; panel.className='ai-score show';
+  let h='<div class="ai-score-head">考核结果：<b>'+st.total+' 分</b>'+(st.passed?' <span class="pass">✅ 通过</span>':' <span class="fail">⚠️ 未达标</span>')+'</div>';
+  h+='<ul class="ai-dims">'; Object.keys(DIM_MAX).forEach(function(k){ const v=st.dims[k]||0; h+='<li class="'+(v>0?'on':'off')+'"><span>'+k+'</span><span>'+v+'/'+(DIM_MAX[k]||15)+'</span></li>'; }); h+='</ul>';
+  if(st.weak&&st.weak.length) h+='<div class="ai-weak">薄弱点：'+st.weak.join('、')+'</div>';
+  if(st.comment) h+='<div class="ai-comment">评语：'+lpEscapeHtml(st.comment)+'</div>';
+  if(!st.passed) h+='<div class="ai-tip">未达通过线（≥70 分 或 覆盖 6/7 维度）。参考话术示例，针对薄弱点重新对练。</div>';
+  panel.innerHTML=h; if(toastMsg) showToast(st.passed?'🎉 本节 AI 对练通过！':'评分未达标，可重新对练', st.passed?'success':'warning');
+}
+function aiReset(sec){ aiState[sec]={history:[],passed:false,total:0,dims:{},weak:[],comment:''}; const chat=document.getElementById('ai-chat-'+sec); if(chat)chat.innerHTML=''; const panel=document.getElementById('ai-score-'+sec); if(panel){panel.className='ai-score';panel.innerHTML='';} const ta=document.getElementById('ai-input-'+sec); if(ta)ta.value=''; updateAIStatus(sec); updateSidebarLocks(); saveProgress(); showToast('已重置本节对练','success'); }
+function tryNextSection(i){ if(!aiPassed(i)){ showToast('请先通过本节 AI 对练（评分≥70 或覆盖6/7维度）','warning'); return; } markComplete(i); navigateTo(i+1); }
 
 
 let studySeconds = 0;
@@ -1626,7 +1083,7 @@ let timerInterval = null;
 // ============================================================
 function init() {
   renderSidebar();
-  renderSections();
+  renderSections(); initAIPractice();
   navigateTo(0);
   setupQuizListeners();
   setupFinalTaskListener();
@@ -1669,7 +1126,7 @@ function renderSections() {
       ${s.type === 'content_chart_dialogue' ? renderDialogue(quizzes[s.quizId], i) : ''}
       <div class="section-nav-buttons">
         <div>${i > 0 ? `<button class="btn btn-outline" onclick="navigateTo(${i-1})">← 上一章</button>` : ''}</div>
-        <div>${i < courseData.sections.length - 1 ? `<button class="btn" onclick="markComplete(${i});navigateTo(${i+1})">下一章 →</button>` : `<button class="btn btn-success" id="completeCourseBtn" onclick="tryCompleteCourse(${i})">✓ 完成课程</button>`}</div>
+        <div>${i < courseData.sections.length - 1 ? `<button class="btn" onclick="tryNextSection(${i});navigateTo(${i+1})">下一章 →</button>` : `<button class="btn btn-success" id="completeCourseBtn" onclick="tryCompleteCourse(${i})">✓ 完成课程</button>`}</div>
       </div>
     </div>
   `).join('');
@@ -1681,7 +1138,7 @@ function renderSections() {
 function canNavigateTo(index) {
   if (index <= 0) return { ok:true };
 for (var k = 0; k < index; k++){
-  if (!sectionPassed(k)) return { ok:false, msg:'请先完成第' + (k+1) + '章考核（全部选择题答对）' };
+  if (!aiPassed(k)) return { ok:false, msg:'请先通过第' + (k+1) + '章 AI 对练（评分≥70 或覆盖6/7维度）' };
 }
 return { ok:true };
 }
@@ -1718,8 +1175,8 @@ function markComplete(index) {
 }
 
 function tryCompleteCourse(index) {
-  if (!(finalTaskSubmitted && finalScore >= 80)) {
-  showToast('请先通过终极考核：模拟首通电话需覆盖至少 6/7 个得分要点', 'warning');
+  if (!aiPassed(courseData.sections.length - 1)) {
+  showToast('请先通过终极考核：AI 综合对练需评分达标', 'warning');
   return;
 }
 markComplete(index);
@@ -1777,21 +1234,15 @@ const correctIdx = quiz.correct;
 if (optionIndex === correctIdx) {
   st.answered = true; st.correct = true;
   cardEl.classList.add('answered-correct'); cardEl.classList.remove('answered-wrong');
-  opts[optionIndex].classList.add('correct');
-  opts.forEach(function(o){ o.classList.add('done'); });
-  fb.className = 'quiz-feedback show correct';
-  fb.innerHTML = quiz.feedback_correct;
+  opts[optionIndex].classList.add('correct'); opts.forEach(function(o){ o.classList.add('done'); });
+  fb.className = 'quiz-feedback show correct'; fb.innerHTML = quiz.feedback_correct;
 } else {
   st.answered = true; st.correct = false;
-  cardEl.classList.add('answered-wrong');
-  opts[optionIndex].classList.add('wrong');
+  cardEl.classList.add('answered-wrong'); opts[optionIndex].classList.add('wrong');
   if (opts[correctIdx]) opts[correctIdx].classList.add('correct');
-  fb.className = 'quiz-feedback show wrong';
-  fb.innerHTML = quiz.feedback_wrong;
+  fb.className = 'quiz-feedback show wrong'; fb.innerHTML = quiz.feedback_wrong;
 }
-updateGroupStatus(currentSection);
-updateSidebarLocks();
-saveProgress();
+updateGroupStatus(currentSection); saveProgress();
 }
 
 // ============================================================
@@ -1836,50 +1287,11 @@ function setupFinalTaskListener() {
 }
 
 function submitFinalTask() {
-  const ta = document.getElementById('finalTaskInput');
-if (!ta) return;
-const text = (ta.value || '').trim();
-if (!text) { showToast('请先填写首通话术再提交考核', 'warning'); return; }
-const dims = [
-  { name:'① 开场确认（自我介绍/说明来意/询问方便）', keys:['班导','老师','您好','方便','来意','确认','电话','打扰','vip','think'] },
-  { name:'② 了解学员（年级/性别/性格/学习期望）', keys:['大班','女孩','女生','性格','期望','基础','慢热','活泼','几岁','读'] },
-  { name:'③ 确认课包（SX级别/课时/排课/时长）', keys:['sx','级别','课时','排课','40','分钟','周二','周四','19:30','赠送','有效期'] },
-  { name:'④ 介绍家长端（APP/手机号/密码/旁听）', keys:['家长端','学生端','app','手机号','123456','旁听','小老师','预习','登录'] },
-  { name:'⑤ 上课规则（请假/补课/停课/旷课）', keys:['请假','补课','停课','旷课','闭环','规则','说明'] },
-  { name:'⑥ 福利升舱（打卡/豌豆币/转介绍/三个月）', keys:['打卡','豌豆币','转介绍','升舱','三个月','福利','兑换','直播'] },
-  { name:'⑦ 收尾跟进（负责/留下联系方式/随时联系）', keys:['负责','跟进','联系','微信','电话','随时','再见'] }
-];
-const low = text.toLowerCase();
-let covered = 0;
-const lines = dims.map(function(d){
-  const hit = d.keys.some(function(k){ return low.indexOf(k.toLowerCase()) !== -1; });
-  if (hit) covered++;
-  return { name:d.name, hit:hit };
-});
-finalScore = Math.round(covered / dims.length * 100);
-finalTaskSubmitted = covered >= 6;
-const report = document.getElementById('finalTaskReport');
-let html = '<h4 style="margin:0 0 10px;">考核结果：' + finalScore + ' 分（覆盖 ' + covered + '/' + dims.length + ' 个得分要点）</h4>';
-html += '<ul style="padding-left:18px;line-height:1.9;margin:8px 0;">'
-lines.forEach(function(l){ html += '<li>' + (l.hit ? '✅ ' : '❌ ') + l.name + '</li>'; });
-html += '</ul>';
-if (finalTaskSubmitted) { html += '<p style="color:#065f46;font-weight:700;margin-top:8px;">🎉 恭喜通过终极考核！可返回首页点击“完成课程”领取结业证书。</p>'; }
-else { html += '<p style="color:#92400e;font-weight:700;margin-top:8px;">⚠️ 尚未覆盖全部得分要点，请参考上方话术示例补充后重新提交（需覆盖至少 6/7 个要点）。</p>'; }
-report.innerHTML = html;
-report.classList.add('show');
-if (finalTaskSubmitted) { ta.disabled = true; ta.classList.add('done'); }
-updateSidebarLocks();
-saveProgress();
+  return;
 }
 
 function resetFinalTask() {
-  const ta = document.getElementById('finalTaskInput');
-if (ta){ ta.value = ''; ta.disabled = false; ta.classList.remove('done'); }
-const rep = document.getElementById('finalTaskReport');
-if (rep){ rep.innerHTML = ''; rep.classList.remove('show'); }
-finalScore = 0; finalTaskSubmitted = false;
-updateSidebarLocks();
-saveProgress();
+  return;
 }
 
 // ============================================================
@@ -1949,8 +1361,8 @@ function saveProgress() {
   const state = {
     completedSections: [...completedSections],
     quizState: quizState,
-    finalScore: finalScore,
-    finalTaskSubmitted: finalTaskSubmitted
+    aiState: aiState,
+    aiProxyUrl: aiProxyUrl
   };
   localStorage.setItem(LS_PREFIX + '_progress', JSON.stringify(state));
 }
@@ -1961,9 +1373,8 @@ function loadProgress() {
     if (saved) {
       completedSections = new Set(saved.completedSections || []);
       if (saved.quizState) quizState = saved.quizState;
-if (typeof saved.finalScore !== 'undefined') finalScore = saved.finalScore;
-if (typeof saved.finalTaskSubmitted !== 'undefined') finalTaskSubmitted = saved.finalTaskSubmitted;
-if (finalTaskSubmitted){ var _ta=document.getElementById('finalTaskInput'); if(_ta){_ta.disabled=true;_ta.classList.add('done');} var _rep=document.getElementById('finalTaskReport'); if(_rep) _rep.classList.add('show'); }
+if (saved.aiState) aiState = saved.aiState;
+if (typeof saved.aiProxyUrl !== 'undefined') aiProxyUrl = saved.aiProxyUrl;
 if (courseData && courseData.sections) courseData.sections.forEach(function(s, i){ updateGroupStatus(i); });
       updateProgress();
       updateSidebarLocks();
@@ -1976,7 +1387,7 @@ if (courseData && courseData.sections) courseData.sections.forEach(function(s, i
 // ============================================================
 function checkCertificate() {
   const allDone = completedSections.size >= courseData.sections.length;
-  if (!(finalTaskSubmitted && finalScore >= 80)) return;
+  if (!aiPassed(courseData.sections.length - 1)) return;
   if (allDone) {
     setTimeout(() => {
       showToast('🏆 恭喜完成全部课程！点击领取结业证书', 'success');
@@ -2034,5 +1445,6 @@ function toggleSidebar() {
 
 document.addEventListener('DOMContentLoaded', init);
 </script>
+<button class="ai-settings-btn" onclick="document.getElementById('aiSettingsPanel').classList.toggle('show')" title="AI 代理设置">⚙️</button><div class="ai-settings-panel" id="aiSettingsPanel"><h4>🤖 AI 对练代理设置</h4><input id="aiProxyUrl" placeholder="代理地址，如 http://localhost:3000 或你的 Worker URL" /><button class="btn" style="width:100%;" onclick="saveAISettings()">保存代理地址</button><div class="hint">代理需兼容 MiMo OpenAI 接口，提供 /chat（演家长）与 /score（7 维评分）两个端点。本地测试用 lp-ai-proxy.js，正式部署用 Cloudflare Worker。</div></div>
 </body>
 </html>
