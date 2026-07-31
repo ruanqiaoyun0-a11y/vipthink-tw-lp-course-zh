@@ -1018,6 +1018,72 @@ function updateGroupStatus(i){
   else { el.textContent='已答对 '+correct+'/'+g.length; el.className='quiz-group-status warn'; }
 }
 function resetQuizGroup(i){ getGroup(i).forEach(function(qid){ const st=quizState[qid]; if(st){st.answered=false;st.correct=false;} const card=document.getElementById('quiz-'+qid); if(card){ card.classList.remove('answered-correct','answered-wrong'); card.querySelectorAll('.quiz-option').forEach(function(o){o.classList.remove('selected','correct','wrong','done');}); } const fb=document.getElementById('feedback-'+qid); if(fb){fb.className='quiz-feedback';fb.innerHTML='';} }); updateGroupStatus(i); saveProgress(); }
+
+const MIMO_KEY = 'sk-cn9ni5uat8o56kiskstrnshz4ajt7ogig2ixek5syahpihol';
+const MIMO_BASE = 'https://api.xiaomimimo.com/v1';
+const MIMO_MODEL = 'mimo-v2.5-pro';
+function LP_PARENT_SYS(sc){
+  const base = `你现在就是一位居住在台湾地区的家长，正在接听 VIP THINK 班导（LP）打来的服务电话。完全代入角色，不跳出、不当顾问或教练。用台湾日常口语，短句，自然生活化。
+
+【人设】有孩子的家长（孩子约小班~四年级，预算中等，重成效、易比价、顾虑线上专注力、习惯观望、不轻易买单）。
+
+【示范｜你只要像下面这样回一句话】
+班导：妈妈好，我是果果的班导，第一次跟您联系。
+家长：喔，你好啊。5岁会不会太早一点？我有点担心她坐不住欸。
+班导：我们用游戏化的方式，每节只有40分钟。
+家长：安啦，可是线上课程她会不会对着萤幕发呆？
+
+【规则】循序渐进抛顾虑；针对班导刚说的话追问或质疑；不主动给建议；可表现犹豫、比价、担心师资；至少 3 轮有效引导才松口；不主动要方案。
+
+【本次场景】
+{SCENARIO}
+
+【你最在意的异议】
+{OBJECTION}
+
+【只输出家长当下说的那句话（1–3 句台湾口语），绝不要解释、复述规则或写心理活动。】`;
+  const full = base.replace('{SCENARIO}', (sc&&sc.html?sc.html:'')).replace('{OBJECTION}', (sc&&sc.objection?sc.objection:''));
+  return full;
+}
+const LP_SCORE_SYS = `你是严格的台湾 VIP THINK 班导（LP）电话能力评委。依据下面 7 个维度为班导这通电话的表现打分（每维 0–权重分，权重见下），返回 JSON：
+{
+  "dims": {
+    "流程完整度": 0,
+    "沟通共情": 0,
+    "信息核对": 0,
+    "权益介绍": 0,
+    "异议处理": 0,
+    "跟进闭环": 0,
+    "话术规范": 0
+  },
+  "total": 0,
+  "weak": ["未覆盖或薄弱的维度名"],
+  "comment": "一句话总评与改进建议"
+}
+只返回 JSON，不要多余解释。维度说明：流程完整度=是否走完 开场→了解学员→确认课包→介绍家长端→上课规则→收尾；沟通共情=语气自然、称呼家长、先接住情绪再处理；信息核对=是否确认年级/性格/学习期望并核对课包参数(SX级别/课时/排课/时长)；权益介绍=是否说明家长端APP登录(手机号/123456)、在线旁听、小老师影片；异议处理=是否用 yes…but… 化解家长质疑、不硬怼；跟进闭环=是否留下联系方式、表示全程负责跟进、请家长随时联系；话术规范=专业不踩雷(不索要银行卡密码等隐私、不夸大)。`;
+function mimoChat(messages, opts){
+  opts = opts || {};
+  return fetch(MIMO_BASE + '/chat/completions', {
+    method:'POST',
+    headers:{'Content-Type':'application/json','Authorization':'Bearer '+MIMO_KEY},
+    body: JSON.stringify({ model: MIMO_MODEL, stream:false, messages: messages, max_tokens: opts.max_tokens||1000, temperature: (typeof opts.temperature==='number'?opts.temperature:0.9), top_p: (typeof opts.top_p==='number'?opts.top_p:0.9) })
+  }).then(function(r){ return r.json(); });
+}
+function mimoText(data){
+  const m = data&&data.choices&&data.choices[0]&&data.choices[0].message;
+  if(!m) return '';
+  if(m.content) return m.content;
+  if(m.reasoning_content) return m.reasoning_content;
+  return '';
+}
+function extractJSON(text){
+  if(!text) return null;
+  let t = String(text).replace(/```json|```/g,'').trim();
+  try { return JSON.parse(t); } catch(e){}
+  const a = t.indexOf('{'); const b = t.lastIndexOf('}');
+  if(a>=0 && b>a){ try { return JSON.parse(t.slice(a,b+1)); } catch(e){} }
+  return null;
+}
 const AI_SCENARIOS = {"0": {"title": "首通电话 · 果果（首次接触）", "html": "学员：果果，女孩，5 岁，幼儿园大班，性格偏慢热、细心；家长期望：培养数学兴趣、打好逻辑基础；课包：由 SX 级别开始，共 48 课时（含赠送 8 课时），有效期 12 个月；排课：每周二、四 19:30 上课，每节 40 分钟；家长端 APP 已安装，账号为报名手机号，初始密码 123456；班导首次接触，此前未沟通。接听人：妈妈。", "objection": "你（妈妈）心里犯嘀咕：孩子才 5 岁，上这个思维课会不会太早？而且你也不确定她坐不坐得住、能不能跟得上，想先听听班导怎么说。"}, "1": {"title": "首课回访 · 48h", "html": "学员：果果，女孩，大班，刚上完第一节正式课；家长期望培养数学兴趣；班导在首课后 48 小时内电话回访。接听人：妈妈。", "objection": "果果回家说\"有点难、不太想上了\"，你（妈妈）也有点犹豫，想问问班导这正常吗、要不要先缓一缓。"}, "2": {"title": "专题 / 月度回访", "html": "学员：果果，已学了一阵子；班导做月度电话回访，结合监课反馈学情。接听人：妈妈。", "objection": "你（妈妈）觉得\"好像没看到什么明显进步，你们顾问都说得挺好，但我不太确定值不值\"，态度有点敷衍。"}, "3": {"title": "停课唤醒", "html": "学员：果果，因故申请停课；班导致电唤醒，理清原因、尽量坚持上课。接听人：妈妈。", "objection": "你（妈妈）说\"最近孩子学校功课太多、周末还有别的班，先停一段时间吧\"，语气平和但已下定决心。"}, "4": {"title": "老生交接", "html": "学员：果果，原班导离职，新班导刚完成交接、首次致电家长。接听人：妈妈。", "objection": "你（妈妈）有点不满：\"怎么又换老师？之前那个挺好的，孩子也习惯了\"，对新班导持观望态度。"}, "5": {"title": "结课外呼 · 唤回", "html": "学员：果果，结业已一段时间；班导外呼关心近况、挖需求、邀约免费试听唤回。接听人：妈妈。", "objection": "你（妈妈）说\"结课了，暂时不想续了，谢谢关心\"，态度客气但明确拒绝。"}, "6": {"title": "终极综合 · 续费挽留", "html": "学员：果果，临近续费节点；班导做综合续费挽留通话，需同时处理多个异议并促成。接听人：妈妈。", "objection": "你（妈妈）一次抛出多个顾虑：\"太贵了，而且孩子好像也没多大兴趣，我还怕看屏幕伤眼睛，我再想想吧。\""}};
 const DIM_MAX = {流程完整度:15,沟通共情:15,信息核对:15,权益介绍:15,异议处理:15,跟进闭环:15,话术规范:10};
 let aiState = {};
@@ -1041,26 +1107,42 @@ function initAIPractice(){
 }
 function updateAIStatus(sec){ const el=document.getElementById('ai-status-'+sec); if(!el) return; const st=aiState[sec]; if(st&&st.passed){ el.textContent='✅ 已通过 ('+st.total+'分)'; el.className='ai-status ok'; } else if(st&&st.total){ el.textContent='需重练：'+st.total+'分'; el.className='ai-status warn'; } else { el.textContent='待对练'; el.className='ai-status'; } }
 function aiSend(sec){
-  if(!aiProxyUrl){ showToast('请先在右上角 ⚙️ 填写并保存 AI 代理地址','warning'); return; }
   const ta=document.getElementById('ai-input-'+sec); const text=(ta.value||'').trim();
   if(!text){ showToast('请先输入你的回应','warning'); return; }
   if(!aiState[sec]) aiState[sec]={history:[],passed:false};
   aiState[sec].history.push({role:'user',content:text}); ta.value='';
   const chat=document.getElementById('ai-chat-'+sec);
   chat.innerHTML+='<div class="ai-msg cc"><span class="who">班导(你)</span>'+lpEscapeHtml(text)+'</div>';
-  const base=aiProxyUrl.replace(/\/$/,'');
-  fetch(base+'/chat',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({scenario:AI_SCENARIOS[sec],history:aiState[sec].history})})
-    .then(function(r){return r.json();}).then(function(d){ const reply=d.reply||'(家长没有回应)'; aiState[sec].history.push({role:'assistant',content:reply}); chat.innerHTML+='<div class="ai-msg parent"><span class="who">家长</span>'+lpEscapeHtml(reply)+'</div>'; chat.scrollTop=chat.scrollHeight; saveProgress(); })
-    .catch(function(e){ chat.innerHTML+='<div class="ai-msg sys">⚠️ 调用 AI 失败：'+(e&&e.message?e.message:e)+'</div>'; });
+  const think=document.createElement('div'); think.className='ai-msg sys'; think.id='ai-think-'+sec; think.textContent='家长输入中…'; chat.appendChild(think); chat.scrollTop=chat.scrollHeight;
+  const onReply=function(reply){ const t=document.getElementById('ai-think-'+sec); if(t)t.remove(); reply=reply||'(家长没有回应)'; aiState[sec].history.push({role:'assistant',content:reply}); chat.innerHTML+='<div class="ai-msg parent"><span class="who">家长</span>'+lpEscapeHtml(reply)+'</div>'; chat.scrollTop=chat.scrollHeight; saveProgress(); };
+  const onErr=function(e){ const t=document.getElementById('ai-think-'+sec); if(t)t.remove(); chat.innerHTML+='<div class="ai-msg sys">⚠️ 调用 AI 失败：'+(e&&e.message?e.message:e)+'</div>'; };
+  if(aiProxyUrl){
+    const base=aiProxyUrl.replace(/\/$/,'');
+    fetch(base+'/chat',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({scenario:AI_SCENARIOS[sec],history:aiState[sec].history})})
+      .then(function(r){return r.json();}).then(function(d){ onReply(d.reply); })
+      .catch(onErr);
+    return;
+  }
+  const sc=AI_SCENARIOS[sec];
+  const msgs=[{role:'system',content:LP_PARENT_SYS(sc)}].concat(aiState[sec].history.slice(-12).map(function(m){ return {role:(m.role==='user'?'user':'assistant'),content:m.content}; }));
+  mimoChat(msgs,{temperature:0.8,top_p:0.9,max_tokens:400}).then(function(d){ onReply(mimoText(d)); }).catch(onErr);
 }
 function aiScore(sec){
-  if(!aiProxyUrl){ showToast('请先在右上角 ⚙️ 填写并保存 AI 代理地址','warning'); return; }
   const st=aiState[sec]; if(!st||!st.history.length){ showToast('请先完成至少一轮对练再评分','warning'); return; }
   const transcript=st.history.map(function(m){ return (m.role==='user'?'班导：':'家长：')+m.content; }).join('\n');
-  const base=aiProxyUrl.replace(/\/$/,'');
-  fetch(base+'/score',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({scenario:AI_SCENARIOS[sec],transcript:transcript})})
-    .then(function(r){return r.json();}).then(function(d){ const dims=d.dims||{}; st.dims=dims; st.total=d.total||0; st.weak=d.weak||[]; st.comment=d.comment||''; const covered=Object.keys(dims).filter(function(k){return (dims[k]||0)>0;}).length; st.passed=(st.total>=70)||(covered>=6); showAIScore(sec,st,true); updateAIStatus(sec); updateSidebarLocks(); saveProgress(); })
-    .catch(function(e){ const panel=document.getElementById('ai-score-'+sec); if(panel){panel.className='ai-score show'; panel.innerHTML='<div class="ai-score-err">⚠️ 评分失败：'+(e&&e.message?e.message:e)+'</div>';} });
+  const panel=document.getElementById('ai-score-'+sec); if(panel){ panel.className='ai-score show'; panel.innerHTML='评分中…'; }
+  const apply=function(parsed){ if(typeof parsed.total!=='number'&&parsed.dims){ parsed.total=Object.values(parsed.dims).reduce(function(s,v){return s+(Number(v)||0);},0); } st.dims=parsed.dims||{}; st.total=parsed.total||0; st.weak=parsed.weak||[]; st.comment=parsed.comment||''; const covered=Object.keys(st.dims).filter(function(k){return (st.dims[k]||0)>0;}).length; st.passed=(st.total>=70)||(covered>=6); showAIScore(sec,st,true); updateAIStatus(sec); updateSidebarLocks(); saveProgress(); };
+  const onErr=function(e){ const p=document.getElementById('ai-score-'+sec); if(p){p.className='ai-score show'; p.innerHTML='<div class="ai-score-err">⚠️ 评分失败：'+(e&&e.message?e.message:e)+'</div>';} };
+  if(aiProxyUrl){
+    const base=aiProxyUrl.replace(/\/$/,'');
+    fetch(base+'/score',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({scenario:AI_SCENARIOS[sec],transcript:transcript})})
+      .then(function(r){return r.json();}).then(apply)
+      .catch(onErr);
+    return;
+  }
+  const sc=AI_SCENARIOS[sec];
+  const userMsg='【学员场景】'+((sc&&sc.html)||'')+'\n【家长异议】'+((sc&&sc.objection)||'')+'\n\n【班导这通电话的逐句实录】\n'+transcript+'\n\n请按系统指示输出 JSON 评分。';
+  mimoChat([{role:'system',content:LP_SCORE_SYS},{role:'user',content:userMsg}],{temperature:0.2,top_p:0.8,max_tokens:3000}).then(function(d){ const parsed=extractJSON(mimoText(d)); if(!parsed){ throw new Error('评分格式异常'); } apply(parsed); }).catch(onErr);
 }
 function showAIScore(sec, st, toastMsg){
   const panel=document.getElementById('ai-score-'+sec); if(!panel) return; panel.className='ai-score show';
@@ -1445,6 +1527,6 @@ function toggleSidebar() {
 
 document.addEventListener('DOMContentLoaded', init);
 </script>
-<button class="ai-settings-btn" onclick="document.getElementById('aiSettingsPanel').classList.toggle('show')" title="AI 代理设置">⚙️</button><div class="ai-settings-panel" id="aiSettingsPanel"><h4>🤖 AI 对练代理设置</h4><input id="aiProxyUrl" placeholder="代理地址，如 http://localhost:3000 或你的 Worker URL" /><button class="btn" style="width:100%;" onclick="saveAISettings()">保存代理地址</button><div class="hint">代理需兼容 MiMo OpenAI 接口，提供 /chat（演家长）与 /score（7 维评分）两个端点。本地测试用 lp-ai-proxy.js，正式部署用 Cloudflare Worker。</div></div>
+<button class="ai-settings-btn" onclick="document.getElementById('aiSettingsPanel').classList.toggle('show')" title="AI 代理设置">⚙️</button><div class="ai-settings-panel" id="aiSettingsPanel"><h4>🤖 AI 对练代理设置</h4><input id="aiProxyUrl" placeholder="可选：填入 Cloudflare Worker 地址以隐藏密钥" /><button class="btn" style="width:100%;" onclick="saveAISettings()">保存代理地址</button><div class="hint">课程已内置直连 AI（无需填写即可对练）。若你希望隐藏 API 密钥、改为由自己的 Cloudflare Worker 代理，可在此填入 Worker 地址（需提供 /chat 与 /score）。</div></div>
 </body>
 </html>
